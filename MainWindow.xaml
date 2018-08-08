@@ -1,0 +1,33 @@
+﻿<Controls:MetroWindow x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmetraApp2014277"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Departamento de tránsito" Height="350" Width="525">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Neighbors" Command="{Binding Model}" CommandParameter="neighbor"/>
+            <Button Content="Vehicles" Command="{Binding Model}" CommandParameter="vehicle"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="button" Content="Neighbors" Margin="10" MinWidth="152" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+        <Button x:Name="button_Copy" Content="Vehicles" Margin="10" Grid.Column="1" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+        <Button x:Name="button_Copy1" Content="Remissions" Margin="10" Grid.Column="2" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+        <Button x:Name="button_Copy2" Content="Sanction Type" Margin="10" Grid.Row="1" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+        <Button x:Name="button_Copy3" Content="Agents" Margin="10" Grid.Row="1" Grid.Column="1" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+        <Button x:Name="button_Copy4" Content="About" Margin="10" Grid.Row="1" Grid.Column="2" FontWeight="Light" Background="#FF7272FF" Foreground="White" FontSize="22" FontStyle="Italic"/>
+    </Grid>
+</Controls:MetroWindow>
