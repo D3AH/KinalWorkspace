@@ -24,14 +24,14 @@
         <Label x:Name="label" Content="Neighbor" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" FontFamily="Segoe Print" FontSize="20" Height="45" Grid.ColumnSpan="2"/>
         <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="3" MinColumnWidth="8" CanUserResizeColumns="False" Grid.ColumnSpan="4" ItemsSource="{ Binding ListNeighbor }" SelectedItem="{ Binding Element }">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding NIT}" ClipboardContentBinding="{x:Null}" Header="NIT" HeaderStringFormat="Columna"/>
+                <!--<DataGridTextColumn Binding="{Binding NIT}" ClipboardContentBinding="{x:Null}" Header="NIT" HeaderStringFormat="Columna"/>
                 <DataGridTextColumn Binding="{Binding DPI}" ClipboardContentBinding="{x:Null}" Header="DPI" HeaderStringFormat="Columna"/>
                 <DataGridTextColumn Binding="{Binding FirstName}" ClipboardContentBinding="{x:Null}" Header="FirstName"/>
                 <DataGridTextColumn Binding="{Binding LastName}" ClipboardContentBinding="{x:Null}" Header="LastName"/>
                 <DataGridTextColumn Binding="{Binding Address}" ClipboardContentBinding="{x:Null}" Header="Address"/>
                 <DataGridTextColumn Binding="{Binding Municipality}" ClipboardContentBinding="{x:Null}" Header="Municipality"/>
                 <DataGridTextColumn Binding="{Binding PostalCode}" ClipboardContentBinding="{x:Null}" Header="PostalCode"/>
-                <DataGridTextColumn Binding="{Binding Telephone}" ClipboardContentBinding="{x:Null}" Header="Telephone"/>
+                <DataGridTextColumn Binding="{Binding Telephone}" ClipboardContentBinding="{x:Null}" Header="Telephone"/>-->
             </DataGrid.Columns>
         </DataGrid>
         <TextBox Controls:TextBoxHelper.Watermark="NIT" Text="{Binding NIT}" x:Name="textBox" Margin="5" Grid.Row="1" TextWrapping="Wrap" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
