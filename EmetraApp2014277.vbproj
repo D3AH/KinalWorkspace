@@ -92,12 +92,6 @@
     <Compile Include="ModelView\MainWindowModelView.vb" />
     <Compile Include="ModelView\VehicleModelView.vb" />
     <Compile Include="ModelView\NeighborModelView.vb" />
-    <Compile Include="View\RemissionView.xaml.vb">
-      <DependentUpon>RemissionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\VehicleView.xaml.vb">
-      <DependentUpon>VehicleView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\NeighborView.xaml.vb">
       <DependentUpon>NeighborView.xaml</DependentUpon>
     </Compile>
@@ -113,14 +107,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\RemissionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\VehicleView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\NeighborView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

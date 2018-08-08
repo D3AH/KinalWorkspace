@@ -14,7 +14,7 @@ Namespace DiegoAuyon.EmetraApp2014277.Model
         Private _CirculationCard As Integer
 #End Region
 #Region "Propiedades"
-        Public Overridable Property Remission() As Vehicle
+        Public Overridable Property Remission() As Remission
         Public Overridable Property Remissions() As ICollection(Of Remission)
 
         <Key>

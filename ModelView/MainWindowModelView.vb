@@ -41,9 +41,6 @@ Public Class MainWindowModelView
         If parametro.Equals("neighbor") Then
             Dim x As New NeighborView
             x.Show()
-        ElseIf parametro.Equals("vehicle") Then
-            Dim x As New VehicleView
-            x.Show()
         End If
     End Sub
 

@@ -14,13 +14,4 @@
         x.Show()
     End Sub
 
-    Private Sub button_Copy_Click(sender As Object, e As RoutedEventArgs) Handles button_Copy.Click
-        Dim x As New VehicleView
-        x.Show()
-    End Sub
-
-    Private Sub button_Copy1_Click(sender As Object, e As RoutedEventArgs) Handles button_Copy1.Click
-        Dim x As New RemissionView
-        x.Show()
-    End Sub
 End Class
