@@ -241,10 +241,37 @@ Public Class NeighborModelView
                 Registro.Municipality = Me.Municipality
                 Registro.PostalCode = Me.PostalCode
                 Registro.Telephone = Me.Telephone
+                Registro.Address = Me.Address
                 DB.Neighbors.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro almacenado!")
                 Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Dim Respuesta As MsgBoxResult = MsgBoxResult.No
+                    Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
+                    If Respuesta = MsgBoxResult.Yes Then
+                        DB.Neighbors.Remove(Element)
+                        DB.SaveChanges()
+                        Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+                    End If
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Update"
+                If Element IsNot Nothing Then
+                    Element.NIT = NIT
+                    Element.DPI = DPI
+                    Element.FirstName = FirstName
+                    Element.LastName = LastName
+                    Element.Address = Address
+                    Element.Municipality = Municipality
+                    Element.PostalCode = PostalCode
+                    Element.Telephone = Telephone
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+                End If
         End Select
     End Sub
 
