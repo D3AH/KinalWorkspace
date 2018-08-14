@@ -1,0 +1,40 @@
+﻿<metro:MetroWindow x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WekeendNotes"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Weekend Notes" Height="350" Width="525">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Users"/>
+            <Button Content="Courses"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Height="133" Margin="15,15,5,10" Width="324" Grid.ColumnSpan="2" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="label" Content="About" Height="30" FontWeight="Bold" FontSize="16" Padding="5,7,5,5" ScrollViewer.CanContentScroll="True" Margin="10,10,10,0" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+            <Label x:Name="label1" Content="Weekend Notes its a project of simple &#xD;&#xA;system notes. Build in WPF Open Source &#xD;&#xA;with educational purpose.&#xD;&#xA;" FontSize="16" TextOptions.TextHintingMode="Fixed" Height="76" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="5,7,5,5" ScrollViewer.CanContentScroll="True" Margin="10,0" Foreground="{DynamicResource SecondaryAccentForegroundBrush}"/>
+        </StackPanel>
+        <Button x:Name="button" Content="Repository" Grid.Column="2" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Height="133" Margin="15,0,5,26" Width="324" Grid.ColumnSpan="2" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Label x:Name="label2" Content="Author" Height="30" FontWeight="Bold" FontSize="16" Padding="5,7,5,5" ScrollViewer.CanContentScroll="True" Margin="10,10,10,0" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+            <Label x:Name="label3" Content="Diego Esteban Auyón Hurtarte, me. &#xA;" FontSize="16" TextOptions.TextHintingMode="Fixed" Height="76" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="5,7,5,5" ScrollViewer.CanContentScroll="True" Margin="10,0" Foreground="{DynamicResource SecondaryAccentForegroundBrush}"/>
+        </StackPanel>
+        <Button x:Name="button_Copy" Content="Github" Grid.Column="2" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"/>
+    </Grid>
+</metro:MetroWindow>
