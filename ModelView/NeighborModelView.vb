@@ -18,7 +18,7 @@ Public Class NeighborModelView
     Private _Telephone As Integer
     ' *
     Private _Model As NeighborModelView
-    Private _ListNeighbor As New List(Of Neighbor)
+    Private _ListNeighbors As New List(Of Neighbor)
     Private _Element As Neighbor
     ' Buttons
     Private _BtnNew As Boolean = True
@@ -119,16 +119,16 @@ Public Class NeighborModelView
         End Set
     End Property
 
-    Public Property ListNeighbor As List(Of Neighbor)
+    Public Property ListNeighbors As List(Of Neighbor)
         Get
-            If _ListNeighbor.Count = 0 Then
-                _ListNeighbor = (From N In DB.Neighbors Select N).ToList
+            If _ListNeighbors.Count = 0 Then
+                _ListNeighbors = (From N In DB.Neighbors Select N).ToList
             End If
-            Return _ListNeighbor
+            Return _ListNeighbors
         End Get
         Set(value As List(Of Neighbor))
-            _ListNeighbor = value
-            NotificarCambio("ListNeighbor")
+            _ListNeighbors = value
+            NotificarCambio("ListNeighbors")
         End Set
     End Property
 
@@ -147,6 +147,7 @@ Public Class NeighborModelView
                 Me.Municipality = _Element.Municipality
                 Me.PostalCode = _Element.PostalCode
                 Me.Telephone = _Element.Telephone
+                Me.Address = _Element.Address
             End If
         End Set
     End Property
@@ -245,7 +246,7 @@ Public Class NeighborModelView
                 DB.Neighbors.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro almacenado!")
-                Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+                Me.ListNeighbors = (From N In DB.Neighbors Select N).ToList
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No
@@ -253,7 +254,7 @@ Public Class NeighborModelView
                     If Respuesta = MsgBoxResult.Yes Then
                         DB.Neighbors.Remove(Element)
                         DB.SaveChanges()
-                        Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+                        Me.ListNeighbors = (From N In DB.Neighbors Select N).ToList
                     End If
                 Else
                     MsgBox("Debe seleccionar un elemento")
@@ -270,7 +271,8 @@ Public Class NeighborModelView
                     Element.Telephone = Telephone
                     DB.Entry(Element).State = Data.Entity.EntityState.Modified
                     DB.SaveChanges()
-                    Me.ListNeighbor = (From N In DB.Neighbors Select N).ToList
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListNeighbors = (From N In DB.Neighbors Select N).ToList
                 End If
         End Select
     End Sub

@@ -27,7 +27,7 @@
             <RowDefinition Height="65*"/>
         </Grid.RowDefinitions>
         <Label x:Name="label" Content="Neighbor" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" FontFamily="Segoe Print" FontSize="20" Height="45" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="3" MinColumnWidth="8" CanUserResizeColumns="False" Grid.ColumnSpan="4" ItemsSource="{ Binding ListNeighbor }" SelectedItem="{ Binding Element }">
+        <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="3" MinColumnWidth="8" CanUserResizeColumns="False" Grid.ColumnSpan="4" ItemsSource="{ Binding ListNeighbors }" SelectedItem="{ Binding Element }">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Binding="{Binding NIT}" ClipboardContentBinding="{x:Null}" Header="NIT" HeaderStringFormat="Columna"/>
                 <DataGridTextColumn Binding="{Binding DPI}" ClipboardContentBinding="{x:Null}" Header="DPI" HeaderStringFormat="Columna"/>
@@ -45,7 +45,7 @@
         <TextBox Controls:TextBoxHelper.Watermark="Last Name" Text="{Binding LastName}" x:Name="textBox_Copy2" Margin="5" Grid.Row="1" TextWrapping="Wrap" Grid.Column="3" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
         <TextBox Controls:TextBoxHelper.Watermark="Address" Text="{Binding Address}" x:Name="textBox_Copy3" Margin="5" Grid.Row="2" TextWrapping="Wrap" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
         <TextBox Controls:TextBoxHelper.Watermark="Municipality" Text="{Binding Municipality}" x:Name="textBox_Copy4" Margin="5" Grid.Row="2" TextWrapping="Wrap" Grid.Column="1" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-        <TextBox Controls:TextBoxHelper.Watermark="Postal Code" Text="{Binding Postal Code}" x:Name="textBox_Copy5" Margin="5" Grid.Row="2" TextWrapping="Wrap" Grid.Column="2" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+        <TextBox Controls:TextBoxHelper.Watermark="Postal Code" Text="{Binding PostalCode}" x:Name="textBox_Copy5" Margin="5" Grid.Row="2" TextWrapping="Wrap" Grid.Column="2" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
         <TextBox Controls:TextBoxHelper.Watermark="Telephone" Text="{Binding Telephone}" x:Name="textBox_Copy6" Margin="5" Grid.Row="2" TextWrapping="Wrap" Grid.Column="3" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
         <StackPanel HorizontalAlignment="Right" Width="424" Margin="0,10,10,10" Grid.Row="4" Orientation="Horizontal" Grid.ColumnSpan="4">
             <Button IsEnabled="{Binding BtnSave}" Command="{Binding Model}" CommandParameter="Save" x:Name="button_Copy" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="29" Margin="5"/>
