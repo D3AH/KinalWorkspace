@@ -89,6 +89,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Course.vb" />
+    <Compile Include="Model\Department.vb" />
+    <Compile Include="Model\OnlineCourse.vb" />
+    <Compile Include="Model\OnSiteCourse.vb" />
+    <Compile Include="Model\Person.vb" />
     <Compile Include="View\DepartmentView.xaml.vb">
       <DependentUpon>DepartmentView.xaml</DependentUpon>
     </Compile>
@@ -163,7 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModelView\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
