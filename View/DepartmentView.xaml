@@ -8,6 +8,23 @@
         mc:Ignorable="d"
         Title="Department" Height="300" Width="300">
     <Grid>
-        
+        <!--Styles-->
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.35" ShadowDepth="2"/>
+        </Grid.Effect>
+        <!--Row-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--Column-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
     </Grid>
 </Controls:MetroWindow>

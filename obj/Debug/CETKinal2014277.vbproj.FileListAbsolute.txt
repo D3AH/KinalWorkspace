@@ -25,3 +25,7 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\CETKinal2014277\obj\Debug\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\CETKinal2014277\obj\Debug\CETKinal2014277.exe
 C:\Users\informatica\Documents\2014277\KinalWorkspace\CETKinal2014277\obj\Debug\CETKinal2014277.xml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\CETKinal2014277\obj\Debug\CETKinal2014277.pdb
+C:\Users\informatica\Documents\2014277\KinalWorkspace\bin\Debug\CETKinal2014277.exe.config
+C:\Users\informatica\Documents\2014277\KinalWorkspace\obj\Debug\CETKinal2014277.exe
+C:\Users\informatica\Documents\2014277\KinalWorkspace\obj\Debug\CETKinal2014277.xml
+C:\Users\informatica\Documents\2014277\KinalWorkspace\obj\Debug\CETKinal2014277.pdb
