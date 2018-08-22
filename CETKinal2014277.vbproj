@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\DepartmentModelView.vb" />
     <Compile Include="ModelView\MainWindowModelView.vb" />
     <Compile Include="Model\CETKinal2014277DataContext.vb" />
     <Compile Include="Model\Course.vb" />

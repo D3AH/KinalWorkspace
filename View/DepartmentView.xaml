@@ -31,7 +31,7 @@
         <Label x:Name="label" Content="Department" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" FontFamily="Segoe Print" FontSize="20" Height="45" Grid.ColumnSpan="2"/>
         <!--Data Grid-->
         <!--**Marcar como ReadOnly-->
-        <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="3" MinColumnWidth="8" CanUserResizeColumns="False" Grid.ColumnSpan="4" ItemsSource="{ Binding ListNeighbors }" SelectedItem="{ Binding Element }">
+        <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="3" MinColumnWidth="8" CanUserResizeColumns="False" Grid.ColumnSpan="4" ItemsSource="{ Binding ListDepartments }" SelectedItem="{ Binding Element }">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                                         EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
