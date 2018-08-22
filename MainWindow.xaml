@@ -9,6 +9,6 @@
         Title="CETKINAL" Height="350" Width="525">
     <Grid>
 
-        <Button Content="Neighbors" Command="{Binding Model}" CommandParameter="Department" Height="100" Width="100"/>
+        <Button Content="Departaments" Command="{Binding Model}" CommandParameter="Department" Width="Auto" Margin="10,10,383,243"/>
     </Grid>
 </Controls:MetroWindow>
