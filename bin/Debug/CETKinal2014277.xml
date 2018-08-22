@@ -54,6 +54,16 @@ CETKinal2014277
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:CETKinal2014277.DepartmentView">
+<summary>
+DepartmentView
+</summary>
+</member>
+<member name="M:CETKinal2014277.DepartmentView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:CETKinal2014277.Application">
 <summary>
 Application

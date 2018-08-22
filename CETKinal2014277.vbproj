@@ -89,11 +89,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\MainWindowModelView.vb" />
+    <Compile Include="Model\CETKinal2014277DataContext.vb" />
     <Compile Include="Model\Course.vb" />
+    <Compile Include="Model\CourseInstructor.vb" />
     <Compile Include="Model\Department.vb" />
+    <Compile Include="Model\OfficeAssigment.vb" />
     <Compile Include="Model\OnlineCourse.vb" />
     <Compile Include="Model\OnSiteCourse.vb" />
     <Compile Include="Model\Person.vb" />
+    <Compile Include="Model\StudentGrade.vb" />
     <Compile Include="View\DepartmentView.xaml.vb">
       <DependentUpon>DepartmentView.xaml</DependentUpon>
     </Compile>
@@ -166,8 +171,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelView\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
