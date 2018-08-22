@@ -11,6 +11,11 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _DepartmentID As Integer
 #End Region
 #Region "Propiedades"
+        Public Overridable Property Department() As Department
+        Public Overridable Property OnlineCourse() As OnlineCourse
+        Public Overridable Property OnSiteCourse() As OnSiteCourse
+        Public Overridable Property CourseInstructors() As ICollection(Of CourseInstructor)
+        Public Overridable Property StudentGrades() As ICollection(Of StudentGrade)
         <Key>
         Public Property CourseID As Integer
             Get

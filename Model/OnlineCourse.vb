@@ -10,6 +10,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _URL As String
 #End Region
 #Region "Propiedades"
+        Public Overridable Property Course() As Course
         <Key>
         <ForeignKey("Course")>
         Public Property CourseID As Integer

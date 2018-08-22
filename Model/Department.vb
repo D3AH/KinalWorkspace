@@ -12,6 +12,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _Administrator As Integer
 #End Region
 #Region "Propiedades"
+        Public Overridable Property Courses() As ICollection(Of Course)
         <Key>
         Public Property DepartmentID As Integer
             Get
