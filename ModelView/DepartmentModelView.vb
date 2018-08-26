@@ -180,6 +180,28 @@ Public Class DepartmentModelView
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")
                 Me.ListDepartments = (From D In DB.Departments Select D).ToList
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Dim Respuesta As MsgBoxResult = MsgBoxResult.No
+                    Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
+                    If Respuesta = MsgBoxResult.Yes Then
+                        DB.Departments.Remove(Element)
+                        DB.SaveChanges()
+                        Me.ListDepartments = (From N In DB.Departments Select N).ToList
+                    End If
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Update"
+                If Element IsNot Nothing Then
+                    Element.Name = Name
+                    Element.Budget = Budget
+                    Element.Administrator = Administrator
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListDepartments = (From N In DB.Departments Select N).ToList
+                End If
         End Select
     End Sub
 

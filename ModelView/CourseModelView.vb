@@ -191,6 +191,28 @@ Public Class CourseModelView
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")
                 Me.ListCourses = (From D In DB.Courses Select D).ToList
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Dim Respuesta As MsgBoxResult = MsgBoxResult.No
+                    Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
+                    If Respuesta = MsgBoxResult.Yes Then
+                        DB.Courses.Remove(Element)
+                        DB.SaveChanges()
+                        Me.ListCourses = (From N In DB.Courses Select N).ToList
+                    End If
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Update"
+                If Element IsNot Nothing Then
+                    Element.Title = Title
+                    Element.Credits = Credits
+                    Element.DepartmentID = DepartmentID
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListCourses = (From N In DB.Courses Select N).ToList
+                End If
         End Select
     End Sub
 

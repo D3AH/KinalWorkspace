@@ -188,6 +188,29 @@ Public Class PersonModelView
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")
                 Me.ListPersons = (From D In DB.Persons Select D).ToList
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Dim Respuesta As MsgBoxResult = MsgBoxResult.No
+                    Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
+                    If Respuesta = MsgBoxResult.Yes Then
+                        DB.Persons.Remove(Element)
+                        DB.SaveChanges()
+                        Me.ListPersons = (From N In DB.Persons Select N).ToList
+                    End If
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Update"
+                If Element IsNot Nothing Then
+                    Element.LastName = LastName
+                    Element.FirstName = FirstName
+                    Element.HireDate = HireDate
+                    Element.EnrollmentDate = EnrollmentDate
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListPersons = (From N In DB.Persons Select N).ToList
+                End If
         End Select
     End Sub
 
