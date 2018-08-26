@@ -12,6 +12,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _Time As Date
 #End Region
 #Region "Propiedades"
+        Public Overridable Property Course() As Course
         <Key>
         <ForeignKey("Course")>
         Public Property CourseID As Integer

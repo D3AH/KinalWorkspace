@@ -13,6 +13,9 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _EnrollmentDate As Date
 #End Region
 #Region "Propiedades"
+        Public Overridable Property CourseInstructors() As ICollection(Of CourseInstructor)
+        Public Overridable Property StudentGrades() As ICollection(Of StudentGrade)
+        Public Overridable Property OfficeAssigment() As OfficeAssigment
         Public Property PersonID As Integer
             Get
                 Return _PersonID

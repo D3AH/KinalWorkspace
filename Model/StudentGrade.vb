@@ -12,7 +12,9 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _Grade As Integer
 #End Region
 #Region "Propiedades"
-        <ForeignKey("Person")>
+        Public Overridable Property Person() As Person
+        Public Overridable Property Course() As Course
+        <Key>
         Public Property EnrollmentID As Integer
             Get
                 Return _EnrollmentID
@@ -30,7 +32,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
                 _CourseID = value
             End Set
         End Property
-        <Key>
+        <ForeignKey("Person")>
         Public Property StudentID As Integer
             Get
                 Return _StudentID

@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="CETKINAL" Height="350" Width="525">
     <Grid>
-        
+
+        <Button Content="Departaments" Command="{Binding Model}" CommandParameter="Department" Width="Auto" Margin="10,10,383,243"/>
     </Grid>
 </Controls:MetroWindow>
