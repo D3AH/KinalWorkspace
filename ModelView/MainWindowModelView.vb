@@ -37,6 +37,9 @@ Public Class MainWindowModelView
             Case "Department"
                 Dim WindowDepartment = New DepartmentView
                 WindowDepartment.Show()
+            Case "Course"
+                Dim WindowCourse = New CourseView
+                WindowCourse.Show()
         End Select
     End Sub
 

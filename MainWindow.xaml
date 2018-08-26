@@ -10,5 +10,7 @@
     <Grid>
 
         <Button Content="Departaments" Command="{Binding Model}" CommandParameter="Department" Width="Auto" Margin="10,10,383,243"/>
+
+        <Button Content="Courses" Command="{Binding Model}" CommandParameter="Course" Width="Auto" Margin="146,10,247,243"/>
     </Grid>
 </Controls:MetroWindow>

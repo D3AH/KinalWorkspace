@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\CourseModelView.vb" />
     <Compile Include="ModelView\DepartmentModelView.vb" />
     <Compile Include="ModelView\MainWindowModelView.vb" />
     <Compile Include="Model\CETKinal2014277DataContext.vb" />
@@ -100,6 +101,9 @@
     <Compile Include="Model\OnSiteCourse.vb" />
     <Compile Include="Model\Person.vb" />
     <Compile Include="Model\StudentGrade.vb" />
+    <Compile Include="View\CourseView.xaml.vb">
+      <DependentUpon>CourseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DepartmentView.xaml.vb">
       <DependentUpon>DepartmentView.xaml</DependentUpon>
     </Compile>
@@ -115,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CourseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\DepartmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
