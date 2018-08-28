@@ -32,6 +32,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
                 _PersonID = value
             End Set
         End Property
-    End Class
 #End Region
+    End Class
+
 End Namespace

@@ -2,17 +2,19 @@
 Imports CETKinal2014277
 Imports CETKinal2014277.DiegoAuyon.CETKinal2014277.Model
 
-Public Class PersonModelView
+Public Class OnSiteCourseModelView
     Implements INotifyPropertyChanged, ICommand, IDataErrorInfo
 
 #Region "Campos"
-    Private _LastName As String
-    Private _FirstName As String
-    Private _HireDate As Date
-    Private _EnrollmentDate As Date
+    Private _CourseID As Integer
+    Private _Location As String
+    Private _Days As String
+    Private _Time As Date
 
-    Private _ListPersons As New List(Of Person) 'Lista de objetos
-    Private _Element As Person
+    Private _ListOnSiteCourses As New List(Of OnSiteCourse) 'Lista de objetos
+    Private _ListCourses As New List(Of Course)
+    Private _Element As OnSiteCourse
+    Private _Course As Course
 
     Private _BtnNew As Boolean = True
     Private _BtnSave As Boolean = False
@@ -20,73 +22,98 @@ Public Class PersonModelView
     Private _BtnCancel As Boolean = False
     Private _BtnUpdate As Boolean = True
 
-    Private _Model As PersonModelView
+    Private _Model As OnSiteCourseModelView
 
     Private DB As New CETKinal2014277DataContext
 #End Region
 #Region "Propiedades"
-    Public Property LastName As String
+    Public Property Location As String
         Get
-            Return _LastName
+            Return _Location
         End Get
         Set(value As String)
-            _LastName = value
+            _Location = value
+            NotificarCambio("Location")
         End Set
     End Property
 
-    Public Property FirstName As String
+    Public Property CourseID As Integer
         Get
-            Return _FirstName
+            Return _CourseID
+        End Get
+        Set(value As Integer)
+            _CourseID = value
+            NotificarCambio("CourseID")
+        End Set
+    End Property
+
+    Public Property Days As String
+        Get
+            Return _Days
         End Get
         Set(value As String)
-            _FirstName = value
+            _Days = value
         End Set
     End Property
 
-    Public Property HireDate As Date
+    Public Property Time As Date
         Get
-            Return _HireDate
+            Return _Time
         End Get
         Set(value As Date)
-            _HireDate = value
+            _Time = value
         End Set
     End Property
 
-    Public Property EnrollmentDate As Date
+    Public Property ListOnSiteCourses As List(Of OnSiteCourse)
         Get
-            Return _EnrollmentDate
-        End Get
-        Set(value As Date)
-            _EnrollmentDate = value
-        End Set
-    End Property
-
-    Public Property ListPersons As List(Of Person)
-        Get
-            If _ListPersons.Count = 0 Then
-                _ListPersons = (From D In DB.Persons Select D).ToList
+            If _ListOnSiteCourses.Count = 0 Then
+                _ListOnSiteCourses = (From D In DB.OnSiteCourses Select D).ToList
             End If
-            Return _ListPersons
+            Return _ListOnSiteCourses
         End Get
-        Set(value As List(Of Person))
-            _ListPersons = value
-            NotificarCambio("ListPersons")
+        Set(value As List(Of OnSiteCourse))
+            _ListOnSiteCourses = value
+            NotificarCambio("ListOnSiteCourses")
         End Set
     End Property
 
-    Public Property Element As Person
+    Public Property ListCourses As List(Of Course)
+        Get
+            If _ListCourses.Count = 0 Then
+                _ListCourses = (From D In DB.Courses Select D).ToList
+            End If
+            Return _ListCourses
+        End Get
+        Set(value As List(Of Course))
+            _ListCourses = value
+            NotificarCambio("ListCourses")
+        End Set
+    End Property
+
+    Public Property Element As OnSiteCourse
         Get
             Return _Element
         End Get
-        Set(value As Person)
+        Set(value As OnSiteCourse)
             _Element = value
             NotificarCambio("Element")
             If value IsNot Nothing Then
-                Me.LastName = _Element.LastName
-                Me.FirstName = _Element.FirstName
-                Me.HireDate = _Element.HireDate
-                Me.EnrollmentDate = _Element.EnrollmentDate
+                Me.Location = _Element.Location
+                Me.Days = _Element.Days
+                Me.Time = _Element.Time
+                Me.CourseID = _Element.CourseID
             End If
+        End Set
+    End Property
+
+    Public Property Course As Course
+        Get
+            Return _Course
+        End Get
+        Set(value As Course)
+            _Course = value
+            NotificarCambio("Course")
         End Set
     End Property
 
@@ -140,11 +167,11 @@ Public Class PersonModelView
         End Set
     End Property
 
-    Public Property Model As PersonModelView
+    Public Property Model As OnSiteCourseModelView
         Get
             Return _Model
         End Get
-        Set(value As PersonModelView)
+        Set(value As OnSiteCourseModelView)
             _Model = value
             NotificarCambio("Model")
         End Set
@@ -179,38 +206,38 @@ Public Class PersonModelView
                 Me.BtnDelete = Not Me.BtnDelete
                 Me.BtnUpdate = Not Me.BtnUpdate
                 Me.BtnCancel = Not Me.BtnCancel
-                Dim Registro As New Person
-                Registro.PersonID = 100
-                Registro.LastName = Me.LastName
-                Registro.FirstName = Me.FirstName
-                Registro.HireDate = Date.Now
-                Registro.EnrollmentDate = Date.Now
-                DB.Persons.Add(Registro)
+                Dim Registro As New OnSiteCourse With {
+                    .Location = Me.Location,
+                    .Days = Me.Days,
+                    .Time = Date.Now(),
+                    .CourseID = Me.Course.CourseID
+                }
+                DB.OnSiteCourses.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")
-                Me.ListPersons = (From D In DB.Persons Select D).ToList
+                Me.ListOnSiteCourses = (From D In DB.OnSiteCourses Select D).ToList
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No
                     Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
                     If Respuesta = MsgBoxResult.Yes Then
-                        DB.Persons.Remove(Element)
+                        DB.OnSiteCourses.Remove(Element)
                         DB.SaveChanges()
-                        Me.ListPersons = (From N In DB.Persons Select N).ToList
+                        Me.ListOnSiteCourses = (From N In DB.OnSiteCourses Select N).ToList
                     End If
                 Else
                     MsgBox("Debe seleccionar un elemento")
                 End If
             Case "Update"
                 If Element IsNot Nothing Then
-                    Element.LastName = LastName
-                    Element.FirstName = FirstName
-                    Element.HireDate = HireDate
-                    Element.EnrollmentDate = EnrollmentDate
+                    Element.Location = Location
+                    Element.Time = Time
+                    Element.Days = Days
+                    Element.CourseID = CourseID
                     DB.Entry(Element).State = Data.Entity.EntityState.Modified
                     DB.SaveChanges()
                     MsgBox("Registro Actualizado", MsgBoxStyle.Information)
-                    Me.ListPersons = (From N In DB.Persons Select N).ToList
+                    Me.ListOnSiteCourses = (From N In DB.OnSiteCourses Select N).ToList
                 End If
         End Select
     End Sub
@@ -226,7 +253,7 @@ Public Class PersonModelView
         End Get
     End Property
 
-    Default Public ReadOnly Property Item(columnName As String) As String Implements IDataErrorInfo.Item
+    Default Public ReadOnly Property Item(columnLocation As String) As String Implements IDataErrorInfo.Item
         Get
             Throw New NotImplementedException()
         End Get

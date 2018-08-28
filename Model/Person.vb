@@ -16,6 +16,8 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Public Overridable Property CourseInstructors() As ICollection(Of CourseInstructor)
         Public Overridable Property StudentGrades() As ICollection(Of StudentGrade)
         Public Overridable Property OfficeAssignment() As OfficeAssignment
+
+        '<DatabaseGenerated(DatabaseGeneratedOption.None)>
         Public Property PersonID As Integer
             Get
                 Return _PersonID

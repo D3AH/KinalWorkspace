@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\OnSiteCourseModelView.vb" />
     <Compile Include="ModelView\OnlineCourseModelView.vb" />
     <Compile Include="ModelView\CourseModelView.vb" />
     <Compile Include="ModelView\PersonModelView.vb" />
@@ -103,6 +104,9 @@
     <Compile Include="Model\OnSiteCourse.vb" />
     <Compile Include="Model\Person.vb" />
     <Compile Include="Model\StudentGrade.vb" />
+    <Compile Include="View\OnSiteCourseView.xaml.vb">
+      <DependentUpon>OnSiteCourseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OnlineCourseView.xaml.vb">
       <DependentUpon>OnlineCourseView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +131,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\OnSiteCourseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\OnlineCourseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
