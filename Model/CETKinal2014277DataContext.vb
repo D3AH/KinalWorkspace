@@ -8,7 +8,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Inherits DbContext
         Public Property Courses() As DbSet(Of Course)
         Public Property Departments() As DbSet(Of Department)
-        Public Property OfficeAssigments() As DbSet(Of OfficeAssigment)
+        Public Property OfficeAssignments() As DbSet(Of OfficeAssignment)
         Public Property OnlineCourses() As DbSet(Of OnlineCourse)
         Public Property OnSiteCourses() As DbSet(Of OnSiteCourse)
         Public Property Persons() As DbSet(Of Person)

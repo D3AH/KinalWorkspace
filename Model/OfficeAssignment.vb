@@ -4,7 +4,7 @@ Imports System.ComponentModel.DataAnnotations.Schema
 
 Namespace DiegoAuyon.CETKinal2014277.Model
 
-    Public Class OfficeAssigment
+    Public Class OfficeAssignment
 #Region "Campos"
         Private _InstructorID As Integer
         Private _Location As String

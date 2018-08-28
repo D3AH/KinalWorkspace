@@ -198,7 +198,6 @@ Public Class CourseModelView
                     .Credits = Me.Credits,
                     .DepartmentID = Me.Department.DepartmentID
                 }
-                MsgBox(Me.Department.DepartmentID)
                 DB.Courses.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")

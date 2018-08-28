@@ -98,7 +98,7 @@
     <Compile Include="Model\Course.vb" />
     <Compile Include="Model\CourseInstructor.vb" />
     <Compile Include="Model\Department.vb" />
-    <Compile Include="Model\OfficeAssigment.vb" />
+    <Compile Include="Model\OfficeAssignment.vb" />
     <Compile Include="Model\OnlineCourse.vb" />
     <Compile Include="Model\OnSiteCourse.vb" />
     <Compile Include="Model\Person.vb" />
