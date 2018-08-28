@@ -12,6 +12,6 @@
         <Button Content="Departaments" Command="{Binding Model}" CommandParameter="Department" Width="Auto" Margin="10,10,383,243"/>
         <Button Content="Courses" Command="{Binding Model}" CommandParameter="Course" Width="Auto" Margin="146,10,247,243"/>
         <Button Content="Person" Command="{Binding Model}" CommandParameter="Person" Width="Auto" Margin="282,11,111,242"/>
-        <Button Content="Online Courses" Command="{Binding Model}" CommandParameter="OnlineCourse" Width="Auto" Margin="282,11,111,242"/>
+        <Button Content="Online Courses" Command="{Binding Model}" CommandParameter="OnlineCourse" Width="Auto" Margin="10,85,383,168"/>
     </Grid>
 </Controls:MetroWindow>

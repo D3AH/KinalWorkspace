@@ -13,6 +13,7 @@ Public Class CourseModelView
     Private _ListCourses As New List(Of Course) 'Lista de objetos
     Private _ListDepartments As New List(Of Department)
     Private _Element As Course
+    Private _Department As Department
 
     Private _BtnNew As Boolean = True
     Private _BtnSave As Boolean = False
@@ -49,6 +50,7 @@ Public Class CourseModelView
         End Get
         Set(value As Integer)
             _DepartmentID = value
+            NotificarCambio("DepartmentID")
         End Set
     End Property
 
@@ -90,6 +92,15 @@ Public Class CourseModelView
                 Me.Credits = _Element.Credits
                 Me.DepartmentID = _Element.DepartmentID
             End If
+        End Set
+    End Property
+    Public Property Department As Department
+        Get
+            Return _Department
+        End Get
+        Set(value As Department)
+            _Department = value
+            NotificarCambio("Department")
         End Set
     End Property
 
@@ -185,8 +196,9 @@ Public Class CourseModelView
                 Dim Registro As New Course With {
                     .Title = Me.Title,
                     .Credits = Me.Credits,
-                    .DepartmentID = Me.DepartmentID
+                    .DepartmentID = Me.Department.DepartmentID
                 }
+                MsgBox(Me.Department.DepartmentID)
                 DB.Courses.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")

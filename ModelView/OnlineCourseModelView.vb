@@ -12,6 +12,7 @@ Public Class OnlineCourseModelView
     Private _ListOnlineCourses As New List(Of OnlineCourse) 'Lista de objetos
     Private _ListCourses As New List(Of Course)
     Private _Element As OnlineCourse
+    Private _Course As Course
 
     Private _BtnNew As Boolean = True
     Private _BtnSave As Boolean = False
@@ -30,6 +31,7 @@ Public Class OnlineCourseModelView
         End Get
         Set(value As String)
             _URL = value
+            NotificarCambio("URL")
         End Set
     End Property
 
@@ -39,6 +41,7 @@ Public Class OnlineCourseModelView
         End Get
         Set(value As Integer)
             _CourseID = value
+            NotificarCambio("CourseID")
         End Set
     End Property
 
@@ -79,6 +82,16 @@ Public Class OnlineCourseModelView
                 Me.URL = _Element.URL
                 Me.CourseID = _Element.CourseID
             End If
+        End Set
+    End Property
+
+    Public Property Course As Course
+        Get
+            Return _Course
+        End Get
+        Set(value As Course)
+            _Course = value
+            NotificarCambio("Course")
         End Set
     End Property
 
@@ -173,7 +186,7 @@ Public Class OnlineCourseModelView
                 Me.BtnCancel = Not Me.BtnCancel
                 Dim Registro As New OnlineCourse With {
                     .URL = Me.URL,
-                    .CourseID = Me.CourseID
+                    .CourseID = Me.Course.CourseID
                 }
                 DB.OnlineCourses.Add(Registro)
                 DB.SaveChanges()
