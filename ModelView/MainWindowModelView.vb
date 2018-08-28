@@ -43,6 +43,9 @@ Public Class MainWindowModelView
             Case "Person"
                 Dim WindowPerson = New PersonView
                 WindowPerson.Show()
+            Case "OnlineCourse"
+                Dim OnlineCoursePerson = New OnlineCourseView
+                OnlineCoursePerson.Show()
 
         End Select
     End Sub
