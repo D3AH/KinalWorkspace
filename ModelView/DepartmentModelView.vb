@@ -158,6 +158,7 @@ Public Class DepartmentModelView
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
 
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
+        On Error GoTo ErrorHandler
         Select Case parameter
             Case "New"
                 Me.BtnNew = False
@@ -183,7 +184,7 @@ Public Class DepartmentModelView
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No
-                    Respuesta = MsgBox("¿Está seguro de eliminar el registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
+                    Respuesta = MsgBox("¿Está seguro de eliminar el registro? Eliminara todos los registros hijos!", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Eliminar")
                     If Respuesta = MsgBoxResult.Yes Then
                         DB.Departments.Remove(Element)
                         DB.SaveChanges()
@@ -201,8 +202,13 @@ Public Class DepartmentModelView
                     DB.SaveChanges()
                     MsgBox("Registro Actualizado", MsgBoxStyle.Information)
                     Me.ListDepartments = (From N In DB.Departments Select N).ToList
+                Else
+                    MsgBox("Debe selecionar un registro")
                 End If
         End Select
+        Exit Sub
+ErrorHandler:
+        MsgBox("Ha ocurrido un error. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute

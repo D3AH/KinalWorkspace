@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
 
 Namespace DiegoAuyon.CETKinal2014277.Model
 
