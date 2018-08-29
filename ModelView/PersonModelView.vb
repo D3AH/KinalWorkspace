@@ -166,6 +166,7 @@ Public Class PersonModelView
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
 
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
+        On Error GoTo ErrorHandler
         Select Case parameter
             Case "New"
                 Me.BtnNew = False
@@ -213,6 +214,9 @@ Public Class PersonModelView
                     Me.ListPersons = (From N In DB.Persons Select N).ToList
                 End If
         End Select
+        Exit Sub
+ErrorHandler:
+        MsgBox("Ha ocurrido un error. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute
