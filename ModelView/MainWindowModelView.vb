@@ -50,6 +50,9 @@ Public Class MainWindowModelView
             Case "OnSiteCourse"
                 Dim WindowOnSiteCourse = New OnSiteCourseView
                 WindowOnSiteCourse.Show()
+            Case "CourseInstructor"
+                Dim WindowCourseInstructor = New CourseInstructorView
+                WindowCourseInstructor.Show()
         End Select
         Exit Sub
 ErrorHandler:
