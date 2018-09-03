@@ -53,6 +53,9 @@ Public Class MainWindowModelView
             Case "CourseInstructor"
                 Dim WindowCourseInstructor = New CourseInstructorView
                 WindowCourseInstructor.Show()
+            Case "StudentGrade"
+                Dim WindowStudentGrade = New StudentGradeView
+                WindowStudentGrade.Show()
         End Select
         Exit Sub
 ErrorHandler:

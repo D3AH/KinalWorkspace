@@ -90,6 +90,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ModelView\CourseInstructorModelView.vb" />
+    <Compile Include="ModelView\StudentGradeModelView.vb" />
     <Compile Include="ModelView\OnSiteCourseModelView.vb" />
     <Compile Include="ModelView\OnlineCourseModelView.vb" />
     <Compile Include="ModelView\CourseModelView.vb" />
@@ -107,6 +108,9 @@
     <Compile Include="Model\StudentGrade.vb" />
     <Compile Include="View\CourseInstructorView.xaml.vb">
       <DependentUpon>CourseInstructorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentGradeView.xaml.vb">
+      <DependentUpon>StudentGradeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OnSiteCourseView.xaml.vb">
       <DependentUpon>OnSiteCourseView.xaml</DependentUpon>
@@ -136,6 +140,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\CourseInstructorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\StudentGradeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
