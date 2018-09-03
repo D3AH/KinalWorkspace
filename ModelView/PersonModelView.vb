@@ -8,8 +8,8 @@ Public Class PersonModelView
 #Region "Campos"
     Private _LastName As String
     Private _FirstName As String
-    Private _HireDate As Date
-    Private _EnrollmentDate As Date
+    Private _HireDate As DateTime = Date.Now
+    Private _EnrollmentDate As DateTime = Date.Now
 
     Private _ListPersons As New List(Of Person) 'Lista de objetos
     Private _Element As Person
@@ -43,20 +43,20 @@ Public Class PersonModelView
         End Set
     End Property
 
-    Public Property HireDate As Date
+    Public Property HireDate As DateTime
         Get
             Return _HireDate
         End Get
-        Set(value As Date)
+        Set(value As DateTime)
             _HireDate = value
         End Set
     End Property
 
-    Public Property EnrollmentDate As Date
+    Public Property EnrollmentDate As DateTime
         Get
             Return _EnrollmentDate
         End Get
-        Set(value As Date)
+        Set(value As DateTime)
             _EnrollmentDate = value
         End Set
     End Property
@@ -166,7 +166,7 @@ Public Class PersonModelView
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
 
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
-        On Error GoTo ErrorHandler
+        'On Error GoTo ErrorHandler
         Select Case parameter
             Case "New"
                 Me.BtnNew = False
@@ -184,8 +184,8 @@ Public Class PersonModelView
                 Registro.PersonID = 100
                 Registro.LastName = Me.LastName
                 Registro.FirstName = Me.FirstName
-                Registro.HireDate = Date.Now
-                Registro.EnrollmentDate = Date.Now
+                Registro.HireDate = Me.HireDate
+                Registro.EnrollmentDate = Me.EnrollmentDate
                 DB.Persons.Add(Registro)
                 DB.SaveChanges()
                 MsgBox("Registro Almacenado")

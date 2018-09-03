@@ -9,8 +9,8 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Private _PersonID As Integer
         Private _LastName As String
         Private _FirstName As String
-        Private _HireDate As Date
-        Private _EnrollmentDate As Date
+        Private _HireDate As DateTime
+        Private _EnrollmentDate As DateTime
 #End Region
 #Region "Propiedades"
         Public Overridable Property CourseInstructors() As ICollection(Of CourseInstructor)
@@ -45,20 +45,20 @@ Namespace DiegoAuyon.CETKinal2014277.Model
             End Set
         End Property
 
-        Public Property HireDate As Date
+        Public Property HireDate As DateTime
             Get
                 Return _HireDate
             End Get
-            Set(value As Date)
+            Set(value As DateTime)
                 _HireDate = value
             End Set
         End Property
 
-        Public Property EnrollmentDate As Date
+        Public Property EnrollmentDate As DateTime
             Get
                 Return _EnrollmentDate
             End Get
-            Set(value As Date)
+            Set(value As DateTime)
                 _EnrollmentDate = value
             End Set
         End Property

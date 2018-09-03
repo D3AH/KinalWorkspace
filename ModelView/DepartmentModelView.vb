@@ -9,6 +9,7 @@ Public Class DepartmentModelView
     Private _Name As String
     Private _Budget As Decimal
     Private _Administrator As Integer
+    Private _StartDate As Date = Date.Now
 
     Private _ListDepartments As New List(Of Department) 'Lista de objetos
     Private _Element As Department
@@ -51,6 +52,15 @@ Public Class DepartmentModelView
         Set(value As Integer)
             _Administrator = value
             NotificarCambio("Administrator")
+        End Set
+    End Property
+
+    Public Property StartDate As Date
+        Get
+            Return _StartDate
+        End Get
+        Set(value As Date)
+            _StartDate = value
         End Set
     End Property
 
@@ -158,7 +168,7 @@ Public Class DepartmentModelView
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
 
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
-        On Error GoTo ErrorHandler
+        'On Error GoTo ErrorHandler
         Select Case parameter
             Case "New"
                 Me.BtnNew = False
@@ -175,7 +185,7 @@ Public Class DepartmentModelView
                 Dim Registro As New Department
                 Registro.Name = Me.Name
                 Registro.Budget = Me.Budget
-                Registro.StartDate = Date.Now
+                Registro.StartDate = Me.StartDate.Date.ToLocalTime
                 Registro.Administrator = Me.Administrator
                 DB.Departments.Add(Registro)
                 DB.SaveChanges()
@@ -227,5 +237,6 @@ ErrorHandler:
             Throw New NotImplementedException()
         End Get
     End Property
+
 #End Region
 End Class
