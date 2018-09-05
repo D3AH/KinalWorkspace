@@ -85,7 +85,7 @@ Public Class StudentGradeModelView
     Public Property ListPersons As List(Of Person)
         Get
             If _ListPersons.Count = 0 Then
-                _ListPersons = (From D In DB.Persons Select D).ToList
+                _ListPersons = (From D In DB.Persons Where D.PersonType = "Estudiante" Select D).ToList
             End If
             Return _ListPersons
         End Get

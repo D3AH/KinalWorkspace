@@ -43,7 +43,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--Text Box-->
-        <ComboBox Margin="5" Grid.Row="1" ItemsSource="{Binding ListPersons}" SelectedItem="{Binding Person}" >
+        <ComboBox Margin="5" Grid.Row="1" ItemsSource="{Binding ListPersons}" SelectedItem="{Binding Person}" Controls:TextBoxHelper.Watermark="Person" Controls:TextBoxHelper.UseFloatingWatermark="True" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -59,7 +59,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBox Controls:TextBoxHelper.Watermark="Grade" Text="{Binding Grade}" x:Name="textBox_Copy" Margin="5" Grid.Row="1" TextWrapping="Wrap" Grid.Column="1" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-        <ComboBox Margin="5" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding ListCourses}" SelectedItem="{Binding Course}" >
+        <ComboBox Margin="5" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding ListCourses}" SelectedItem="{Binding Course}" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Course" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>

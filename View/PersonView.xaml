@@ -39,6 +39,7 @@
                                         Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"
                                         />
                 <DataGridTextColumn Binding="{Binding PersonID}" ClipboardContentBinding="{x:Null}" Header="PersonID" HeaderStringFormat="Columna"/>
+                <DataGridTextColumn Binding="{Binding PersonType}" ClipboardContentBinding="{x:Null}" Header="Type" HeaderStringFormat="Columna"/>
                 <DataGridTextColumn Binding="{Binding FirstName}" ClipboardContentBinding="{x:Null}" Header="FirstName" HeaderStringFormat="Columna"/>
                 <DataGridTextColumn Binding="{Binding LastName}" ClipboardContentBinding="{x:Null}" Header="LastName"/>
                 <DataGridTextColumn Binding="{Binding HireDate}" ClipboardContentBinding="{x:Null}" Header="HireDate"/>
