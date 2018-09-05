@@ -244,11 +244,7 @@ ErrorHandler:
         If Err.GetException().GetType.ToString = "System.NullReferenceException" Then
             MsgBox("Faltan algunos valores!")
         Else
-            If Err.GetException().GetType.ToString = "System.NullReferenceException" Then
-            MsgBox("Faltan algunos valores!")
-        Else
             MsgBox("Ha ocurrido un error. Verifique que los campos son correctos y no duplicados. ExceptionType:" & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
-        End If
         End If
     End Sub
 
