@@ -194,15 +194,20 @@ Public Class CourseModelView
                 Me.BtnDelete = Not Me.BtnDelete
                 Me.BtnUpdate = Not Me.BtnUpdate
                 Me.BtnCancel = Not Me.BtnCancel
-                Dim Registro As New Course With {
-                    .Title = Me.Title,
-                    .Credits = Me.Credits,
-                    .DepartmentID = Me.Department.DepartmentID
-                }
-                DB.Courses.Add(Registro)
-                DB.SaveChanges()
-                MsgBox("Registro Almacenado")
-                Me.ListCourses = (From D In DB.Courses Select D).ToList
+                If Title IsNot Nothing Then
+                    Dim Registro As New Course With {
+                        .Title = Me.Title,
+                        .Credits = Me.Credits,
+                        .DepartmentID = Me.Department.DepartmentID
+                    }
+                    DB.Courses.Add(Registro)
+                    DB.SaveChanges()
+                    MsgBox("Registro Almacenado")
+                    ListCourses = (From D In DB.Courses Select D).ToList
+                Else
+                    MsgBox("No ingresar valores vacios")
+                End If
+
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No

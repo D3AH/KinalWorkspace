@@ -48,7 +48,7 @@
         <ComboBox Margin="5" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding ListCourses}" SelectedItem="{Binding Course}" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text= "{Binding CourseID}"/>
+                    <TextBlock Text= "{Binding Title}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>

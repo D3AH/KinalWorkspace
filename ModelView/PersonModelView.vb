@@ -210,16 +210,20 @@ Public Class PersonModelView
                 Me.BtnDelete = Not Me.BtnDelete
                 Me.BtnUpdate = Not Me.BtnUpdate
                 Me.BtnCancel = Not Me.BtnCancel
-                Dim Registro As New Person
-                Registro.PersonType = Me.Type
-                Registro.LastName = Me.LastName
-                Registro.FirstName = Me.FirstName
-                Registro.HireDate = Me.HireDate
-                Registro.EnrollmentDate = Me.EnrollmentDate
-                DB.Persons.Add(Registro)
-                DB.SaveChanges()
-                MsgBox("Registro Almacenado")
-                Me.ListPersons = (From D In DB.Persons Select D).ToList
+                If LastName IsNot Nothing And FirstName IsNot Nothing Then
+                    Dim Registro As New Person
+                    Registro.PersonType = Me.Type
+                    Registro.LastName = Me.LastName
+                    Registro.FirstName = Me.FirstName
+                    Registro.HireDate = Me.HireDate
+                    Registro.EnrollmentDate = Me.EnrollmentDate
+                    DB.Persons.Add(Registro)
+                    DB.SaveChanges()
+                    MsgBox("Registro Almacenado")
+                    Me.ListPersons = (From D In DB.Persons Select D).ToList
+                Else
+                    MsgBox("No ingresar valores vacios")
+                End If
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No

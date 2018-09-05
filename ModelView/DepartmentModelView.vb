@@ -183,14 +183,20 @@ Public Class DepartmentModelView
                 Me.BtnUpdate = Not Me.BtnUpdate
                 Me.BtnCancel = Not Me.BtnCancel
                 Dim Registro As New Department
-                Registro.Name = Me.Name
-                Registro.Budget = Me.Budget
-                Registro.StartDate = Me.StartDate.Date.ToLocalTime
-                Registro.Administrator = Me.Administrator
-                DB.Departments.Add(Registro)
-                DB.SaveChanges()
-                MsgBox("Registro Almacenado")
-                Me.ListDepartments = (From D In DB.Departments Select D).ToList
+                If Name IsNot Nothing Then
+                    Registro.Name = Me.Name
+                    Registro.Budget = Me.Budget
+                    Registro.StartDate = Me.StartDate.Date.ToLocalTime
+                    Registro.Administrator = Me.Administrator
+                    DB.Departments.Add(Registro)
+                    DB.SaveChanges()
+                    MsgBox("Registro Almacenado")
+                    Me.ListDepartments = (From D In DB.Departments Select D).ToList
+                Else
+                    MsgBox("No ingresar valos vacios.")
+                End If
+
+
             Case "Delete"
                 If Element IsNot Nothing Then
                     Dim Respuesta As MsgBoxResult = MsgBoxResult.No
