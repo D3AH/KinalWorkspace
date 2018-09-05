@@ -7,6 +7,7 @@ Namespace DiegoAuyon.CETKinal2014277.Model
     Public Class Person
 #Region "Campos"
         Private _PersonID As Integer
+        Private _PersonType As String
         Private _LastName As String
         Private _FirstName As String
         Private _HireDate As DateTime
@@ -17,13 +18,22 @@ Namespace DiegoAuyon.CETKinal2014277.Model
         Public Overridable Property StudentGrades() As ICollection(Of StudentGrade)
         Public Overridable Property OfficeAssignment() As OfficeAssignment
 
-        '<DatabaseGenerated(DatabaseGeneratedOption.None)>
+        <Key>
         Public Property PersonID As Integer
             Get
                 Return _PersonID
             End Get
             Set(value As Integer)
                 _PersonID = value
+            End Set
+        End Property
+        <Required>
+        Public Property PersonType As String
+            Get
+                Return _PersonType
+            End Get
+            Set(value As String)
+                _PersonType = value
             End Set
         End Property
 

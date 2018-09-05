@@ -6,6 +6,7 @@ Public Class PersonModelView
     Implements INotifyPropertyChanged, ICommand, IDataErrorInfo
 
 #Region "Campos"
+    Private _PersonType As String
     Private _LastName As String
     Private _FirstName As String
     Private _HireDate As DateTime = Date.Now
@@ -13,6 +14,8 @@ Public Class PersonModelView
 
     Private _ListPersons As New List(Of Person) 'Lista de objetos
     Private _Element As Person
+    Private _ListOfTypes As ArrayList = New ArrayList From {"Profesor", "Estudiante"}
+    Private _Type As String
 
     Private _BtnNew As Boolean = True
     Private _BtnSave As Boolean = False
@@ -25,6 +28,15 @@ Public Class PersonModelView
     Private DB As New CETKinal2014277DataContext
 #End Region
 #Region "Propiedades"
+    Public Property PersonType As String
+        Get
+            Return _PersonType
+        End Get
+        Set(value As String)
+            _PersonType = value
+        End Set
+    End Property
+
     Public Property LastName As String
         Get
             Return _LastName
@@ -87,6 +99,24 @@ Public Class PersonModelView
                 Me.HireDate = _Element.HireDate
                 Me.EnrollmentDate = _Element.EnrollmentDate
             End If
+        End Set
+    End Property
+
+    Public Property ListOfTypes As ArrayList
+        Get
+            Return _ListOfTypes
+        End Get
+        Set(value As ArrayList)
+            _ListOfTypes = value
+        End Set
+    End Property
+
+    Public Property Type As String
+        Get
+            Return _Type
+        End Get
+        Set(value As String)
+            _Type = value
         End Set
     End Property
 
@@ -166,7 +196,7 @@ Public Class PersonModelView
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
 
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
-        'On Error GoTo ErrorHandler
+        On Error GoTo ErrorHandler
         Select Case parameter
             Case "New"
                 Me.BtnNew = False
@@ -181,7 +211,7 @@ Public Class PersonModelView
                 Me.BtnUpdate = Not Me.BtnUpdate
                 Me.BtnCancel = Not Me.BtnCancel
                 Dim Registro As New Person
-                Registro.PersonID = 100
+                Registro.PersonType = Me.Type
                 Registro.LastName = Me.LastName
                 Registro.FirstName = Me.FirstName
                 Registro.HireDate = Me.HireDate
@@ -216,7 +246,7 @@ Public Class PersonModelView
         End Select
         Exit Sub
 ErrorHandler:
-        MsgBox("Ha ocurrido un error. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        MsgBox("Ha ocurrido un error. Verifique que los campos son correctos. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute
