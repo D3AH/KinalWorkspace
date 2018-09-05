@@ -253,7 +253,11 @@ Public Class StudentGradeModelView
         End Select
         Exit Sub
 ErrorHandler:
-        MsgBox("Ha ocurrido un error. Verifique que los campos con correctos o duplicados. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        If Err.GetException().GetType.ToString = "System.NullReferenceException" Then
+            MsgBox("Faltan algunos valores!")
+        Else
+            MsgBox("Ha ocurrido un error. Verifique que los campos son correctos y no duplicados. ExceptionType:" & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        End If
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute

@@ -1,5 +1,4 @@
 ﻿Imports System.ComponentModel
-Imports CETKinal2014277
 Imports CETKinal2014277.DiegoAuyon.CETKinal2014277.Model
 
 Public Class PersonModelView
@@ -250,7 +249,11 @@ Public Class PersonModelView
         End Select
         Exit Sub
 ErrorHandler:
-        MsgBox("Ha ocurrido un error. Verifique que los campos con correctos o duplicados. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        If Err.GetException().GetType.ToString = "System.NullReferenceException" Then
+            MsgBox("Faltan algunos valores!")
+        Else
+            MsgBox("Ha ocurrido un error. Verifique que los campos son correctos y no duplicados. ExceptionType:" & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        End If
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute
