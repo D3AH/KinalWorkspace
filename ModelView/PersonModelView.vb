@@ -250,7 +250,7 @@ Public Class PersonModelView
         End Select
         Exit Sub
 ErrorHandler:
-        MsgBox("Ha ocurrido un error. Verifique que los campos son correctos. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
+        MsgBox("Ha ocurrido un error. Verifique que los campos con correctos o duplicados. ErrorType: " & Err.GetException().GetType.ToString, MsgBoxStyle.Critical, "Ups! Ocurrio un error!")
     End Sub
 
     Public Function CanExecute(parameter As Object) As Boolean Implements ICommand.CanExecute
