@@ -15,8 +15,8 @@ namespace WebAPI.Models
     }
     // This class generate the database, this feature is called "FirstCode" a part of EntityFramework
 
-    class ProductoDbContest : DbContext
+    class ProductoDbContext : DbContext
     {
-
+        public DbSet<Producto> Productos { get; set; }
     }
 }
