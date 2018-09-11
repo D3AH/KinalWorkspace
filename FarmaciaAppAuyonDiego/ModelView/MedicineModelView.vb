@@ -10,6 +10,7 @@ Public Class MedicineModelView
     Private _LaboratoryID As Integer
 
     Private _ListMedicine As ICollection(Of Medicine)
+    Private _ListLaboratory As ICollection(Of Laboratory)
     Private _Element As Medicine
     Private _Model As MedicineModelView
 
@@ -60,12 +61,21 @@ Public Class MedicineModelView
     Public Property ListMedicine As ICollection(Of Medicine)
         Get
             If _ListMedicine Is Nothing Then
-                '_ListMedicine = (From S As Medicine In DB.Medicines Select S).ToList
+                _ListMedicine = (From S As Medicine In DB.Medicines Select S).ToList
             End If
             Return _ListMedicine
         End Get
         Set(value As ICollection(Of Medicine))
             _ListMedicine = value
+        End Set
+    End Property
+
+    Public Property ListLaboratory As ICollection(Of Laboratory)
+        Get
+            Return _ListLaboratory
+        End Get
+        Set(value As ICollection(Of Laboratory))
+            _ListLaboratory = value
         End Set
     End Property
 
