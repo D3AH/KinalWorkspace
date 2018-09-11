@@ -43,9 +43,10 @@ Public Class MainWindowModelView
         Select Case parameter
             Case "Sales"
                 Dim SalesWindow As New SalesView
-                SalesWindow.Show()
-            Case "Hola"
-                MsgBox("hola")
+                SalesWindow.ShowDialog()
+            Case "Laboratory"
+                Dim LaboratoryWindow As New LaboratoryView
+                LaboratoryWindow.Show()
             Case Else
                 MsgBox("Hoola")
         End Select

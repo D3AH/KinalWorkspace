@@ -4,7 +4,7 @@ Imports FarmaciaAppAuyonDiego.AuyonDiego.FarmaciaApp.Model
 Public Class SalesModelView
     Implements ICommand, IDataErrorInfo, INotifyPropertyChanged
 
-    Private _SalesDate As Date
+    Private _SalesDate As Date = Date.Now
     Private _Price As Decimal
     Private _Amount As Decimal
     Private _Telephone As String
@@ -16,26 +16,12 @@ Public Class SalesModelView
 
     Private _BtnNew = True
     Private _BtnSave = False
-    Private _BtnEliminar = True
+    Private _BtnDelete = True
     Private _BtnUpdate = True
 
     Private DB As New FarmaciaAppDataContext
 
 #Region "Propiedades"
-#Region "IDataErrorInfo"
-    Public ReadOnly Property [Error] As String Implements IDataErrorInfo.Error
-        Get
-            Throw New NotImplementedException()
-        End Get
-    End Property
-
-    Default Public ReadOnly Property Item(columnName As String) As String Implements IDataErrorInfo.Item
-        Get
-            Throw New NotImplementedException()
-        End Get
-    End Property
-#End Region
-#Region "SalesModelView"
     Public Property SalesDate As Date
         Get
             Return _SalesDate
@@ -84,7 +70,7 @@ Public Class SalesModelView
     Public Property ListSales As ICollection(Of Sales)
         Get
             If _ListSales Is Nothing Then
-                _ListSales = (From DB.Sales )
+                _ListSales = (From S As Sales In DB.Sales Select S).ToList
             End If
             Return _ListSales
         End Get
@@ -104,10 +90,14 @@ Public Class SalesModelView
 
     Public Property Model As SalesModelView
         Get
+            If _Model Is Nothing Then
+                _Model = Me
+            End If
             Return _Model
         End Get
         Set(value As SalesModelView)
             _Model = value
+            NotificarCambio("Model")
         End Set
     End Property
 
@@ -129,12 +119,12 @@ Public Class SalesModelView
         End Set
     End Property
 
-    Public Property BtnEliminar As Object
+    Public Property BtnDelete As Object
         Get
-            Return _BtnEliminar
+            Return _BtnDelete
         End Get
         Set(value As Object)
-            _BtnEliminar = value
+            _BtnDelete = value
         End Set
     End Property
 
@@ -147,6 +137,18 @@ Public Class SalesModelView
         End Set
     End Property
 #End Region
+#Region "IDataErrorInfo"
+    Public ReadOnly Property [Error] As String Implements IDataErrorInfo.Error
+        Get
+            Throw New NotImplementedException()
+        End Get
+    End Property
+
+    Default Public ReadOnly Property Item(columnName As String) As String Implements IDataErrorInfo.Item
+        Get
+            Throw New NotImplementedException()
+        End Get
+    End Property
 #End Region
 #Region "ICommand"
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
@@ -154,7 +156,18 @@ Public Class SalesModelView
     Public Sub Execute(parameter As Object) Implements ICommand.Execute
         Select Case parameter
             Case "New"
-                MsgBox("Hola")
+                BtnNew = False
+                BtnSave = True
+                BtnDelete = False
+                BtnUpdate = False
+            Case "Save"
+                Dim Registro As New Sales
+                Registro.Amount = Amount
+                Registro.MedicineID = MedicineID
+                Registro.Price = Price
+                Registro.Telephone = Telephone
+                Registro.SalesDate = SalesDate
+                DB.Sales.Add(Registro)
             Case "Update"
                 MsgBox("Hola2")
             Case Else
@@ -169,8 +182,8 @@ Public Class SalesModelView
 #Region "INotifyPropertyChanged"
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
-    Public Sub NotificarCambio(ByVal parameter As String, ByVal e As PropertyChangedEventHandler)
-
+    Public Sub NotificarCambio(ByVal parameter As String)
+        RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(parameter))
     End Sub
 #End Region
 End Class

@@ -25,13 +25,13 @@
         <TextBox x:Name="textBox" Text="{Binding Price}" controls:TextBoxHelper.Watermark="Price" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="0"/>
         <TextBox x:Name="textBox_Copy" Text="{Binding Amount}" controls:TextBoxHelper.Watermark="Amount" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="1"/>
         <TextBox x:Name="textBox_Copy1" Text="{Binding Telephone}" controls:TextBoxHelper.Watermark="Telephone" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="2"/>
-        <DatePicker Grid.Column="3" Margin="5,5,18,5" Grid.ColumnSpan="2"/>
+        <DatePicker  Grid.Column="3" Margin="5,5,18,5" Grid.ColumnSpan="2" DisplayDate="{Binding SalesDate}"/>
         <ComboBox x:Name="comboBox" Grid.Row="1" Margin="5" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Medicine ID" Grid.ColumnSpan="2"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="462" Height="215" Grid.ColumnSpan="5" Grid.Row="2" IsSynchronizedWithCurrentItem="False" DataContext="{ Binding ListSales }"/>
-        <Button x:Name="button" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="button_Copy" Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
-        <Button x:Name="button_Copy1" Content="Update" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="2"/>
-        <Button x:Name="button_Copy2" Content="Delete" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="3"/>
-        <Button x:Name="button_Copy3" Content="Ayuda" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="62" Grid.Column="4"/>
+        <Button x:Name="button" Command="{ Binding Model }" CommandParameter="New" IsEnabled="{ Binding BtnNew}" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="button_Copy" Command="{ Binding Model }" CommandParameter="Save" IsEnabled="{ Binding BtnSave}" Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
+        <Button x:Name="button_Copy1" Command="{ Binding Model }" CommandParameter="Update" IsEnabled="{ Binding BtnUpdate}" Content="Update" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="2"/>
+        <Button x:Name="button_Copy2" Command="{ Binding Model }" CommandParameter="Delete" IsEnabled="{ Binding BtnDelete}" Content="Delete" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="3"/>
+        <Button x:Name="button_Copy3" Content="Help" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="62" Grid.Column="4"/>
     </Grid>
 </controls:MetroWindow>
