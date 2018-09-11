@@ -26,6 +26,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As String)
             _LaboratoryName = value
+            NotificarCambio("LaboratoryName")
         End Set
     End Property
 
@@ -35,6 +36,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As String)
             _Address = value
+            NotificarCambio("Address")
         End Set
     End Property
 
@@ -44,18 +46,20 @@ Public Class LaboratoryModelView
         End Get
         Set(value As String)
             _Telephone = value
+            NotificarCambio("Telephone")
         End Set
     End Property
 
     Public Property ListLaboratory As ICollection(Of Laboratory)
         Get
             If _ListLaboratory Is Nothing Then
-                _ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
+                '_ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
             End If
             Return _ListLaboratory
         End Get
         Set(value As ICollection(Of Laboratory))
             _ListLaboratory = value
+            NotificarCambio("ListLaboratory")
         End Set
     End Property
 
@@ -65,6 +69,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As Laboratory)
             _Element = value
+            NotificarCambio("Element")
         End Set
     End Property
 
@@ -87,6 +92,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As Object)
             _BtnNew = value
+            NotificarCambio("BtnNew")
         End Set
     End Property
 
@@ -96,6 +102,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As Object)
             _BtnSave = value
+            NotificarCambio("BtnSave")
         End Set
     End Property
 
@@ -105,6 +112,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As Object)
             _BtnDelete = value
+            NotificarCambio("BtnDelete")
         End Set
     End Property
 
@@ -114,6 +122,7 @@ Public Class LaboratoryModelView
         End Get
         Set(value As Object)
             _BtnUpdate = value
+            NotificarCambio("BtnUpdate")
         End Set
     End Property
 #End Region
@@ -146,6 +155,10 @@ Public Class LaboratoryModelView
                 Registro.LaboratoryName = LaboratoryName
                 Registro.Telephone = Telephone
                 DB.Laboratories.Add(Registro)
+                BtnNew = True
+                BtnSave = False
+                BtnDelete = True
+                BtnUpdate = True
             Case "Update"
                 MsgBox("Hola2")
             Case Else

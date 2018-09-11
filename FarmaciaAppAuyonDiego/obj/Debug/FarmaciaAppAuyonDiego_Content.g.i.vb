@@ -11,5 +11,5 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/farmaciaapp2datacontext.context.tt")> 
+<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/datacontext.context.tt")> 
 
