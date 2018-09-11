@@ -54,6 +54,16 @@ FarmaciaAppAuyonDiego
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:FarmaciaAppAuyonDiego.SalesView">
+<summary>
+SalesView
+</summary>
+</member>
+<member name="M:FarmaciaAppAuyonDiego.SalesView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:FarmaciaAppAuyonDiego.Application">
 <summary>
 Application
@@ -69,12 +79,12 @@ InitializeComponent
 Application Entry Point.
 </summary>
 </member>
-<member name="T:FarmaciaAppAuyonDiego.WpfApplication.MainWindow">
+<member name="T:FarmaciaAppAuyonDiego.MainWindow">
 <summary>
 MainWindow
 </summary>
 </member>
-<member name="M:FarmaciaAppAuyonDiego.WpfApplication.MainWindow.InitializeComponent">
+<member name="M:FarmaciaAppAuyonDiego.MainWindow.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
