@@ -14,6 +14,7 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\bin\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\bin\Debug\MahApps.Metro.xml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\MainWindow.g.vb
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\LaboratoryView.g.vb
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.g.vb
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\SalesView.g.vb
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\Application.g.vb
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego_MarkupCompile.cache
@@ -21,6 +22,7 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\Application.baml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\MainWindow.baml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\LaboratoryView.baml
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.baml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\SalesView.baml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.g.resources
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.Resources.resources
@@ -28,5 +30,3 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.exe
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.xml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.pdb
-C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.g.vb
-C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.baml

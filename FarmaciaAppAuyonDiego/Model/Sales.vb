@@ -1,4 +1,5 @@
-﻿Imports System.ComponentModel.DataAnnotations
+﻿Imports System.ComponentModel
+Imports System.ComponentModel.DataAnnotations
 Imports System.ComponentModel.DataAnnotations.Schema
 
 Namespace AuyonDiego.FarmaciaApp.Model
@@ -13,7 +14,6 @@ Namespace AuyonDiego.FarmaciaApp.Model
 #End Region
 #Region "Propiedades"
         Public Overridable Property Medicine As Medicine
-
         <Key>
         Public Property SalesID As Integer
             Get

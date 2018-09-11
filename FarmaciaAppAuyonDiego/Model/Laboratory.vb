@@ -1,4 +1,5 @@
-﻿Imports System.ComponentModel.DataAnnotations
+﻿Imports System.ComponentModel
+Imports System.ComponentModel.DataAnnotations
 
 Namespace AuyonDiego.FarmaciaApp.Model
     Public Class Laboratory
@@ -10,7 +11,6 @@ Namespace AuyonDiego.FarmaciaApp.Model
 #End Region
 #Region "Propiedades"
         Public Overridable Property Medicines() As ICollection(Of Medicine)
-
         <Key>
         Public Property LaboratoryID As Integer
             Get

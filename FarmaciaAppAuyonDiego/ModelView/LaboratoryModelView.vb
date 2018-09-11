@@ -53,7 +53,7 @@ Public Class LaboratoryModelView
     Public Property ListLaboratory As ICollection(Of Laboratory)
         Get
             If _ListLaboratory Is Nothing Then
-                _ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
+                '_ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
             End If
             Return _ListLaboratory
         End Get
@@ -150,11 +150,13 @@ Public Class LaboratoryModelView
                 BtnDelete = False
                 BtnUpdate = False
             Case "Save"
+                MsgBox(ListLaboratory)
                 Dim Registro As New Laboratory
                 Registro.Address = Address
                 Registro.LaboratoryName = LaboratoryName
                 Registro.Telephone = Telephone
                 DB.Laboratories.Add(Registro)
+                DB.SaveChanges()
                 BtnNew = True
                 BtnSave = False
                 BtnDelete = True

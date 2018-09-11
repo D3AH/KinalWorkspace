@@ -47,6 +47,9 @@ Public Class MainWindowModelView
             Case "Laboratory"
                 Dim LaboratoryWindow As New LaboratoryView
                 LaboratoryWindow.Show()
+            Case "Medicine"
+                Dim MedicineWindow As New MedicineView
+                MedicineWindow.Show()
             Case Else
                 MsgBox("Hoola")
         End Select
