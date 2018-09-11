@@ -91,8 +91,12 @@
     </ApplicationDefinition>
     <Compile Include="ModelView\MainWindowModelView.vb" />
     <Compile Include="ModelView\LaboratoryModelView.vb" />
+    <Compile Include="ModelView\MedicineModelView.vb" />
     <Compile Include="View\LaboratoryView.xaml.vb">
       <DependentUpon>LaboratoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MedicineView.xaml.vb">
+      <DependentUpon>MedicineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesView.xaml.vb">
       <DependentUpon>SalesView.xaml</DependentUpon>
@@ -110,6 +114,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\LaboratoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MedicineView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

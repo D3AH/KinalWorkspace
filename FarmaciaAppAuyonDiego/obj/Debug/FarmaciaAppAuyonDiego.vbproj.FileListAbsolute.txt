@@ -28,3 +28,5 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.exe
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.xml
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.pdb
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.g.vb
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\MedicineView.baml

@@ -70,7 +70,7 @@ Public Class SalesModelView
     Public Property ListSales As ICollection(Of Sales)
         Get
             If _ListSales Is Nothing Then
-                '_ListSales = (From S As Sales In DB.Sales Select S).ToList
+                _ListSales = (From S As Sales In DB.Sales Select S).ToList
             End If
             Return _ListSales
         End Get

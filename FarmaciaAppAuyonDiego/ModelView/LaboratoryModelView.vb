@@ -53,7 +53,7 @@ Public Class LaboratoryModelView
     Public Property ListLaboratory As ICollection(Of Laboratory)
         Get
             If _ListLaboratory Is Nothing Then
-                '_ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
+                _ListLaboratory = (From S As Laboratory In DB.Laboratories Select S).ToList
             End If
             Return _ListLaboratory
         End Get

@@ -60,7 +60,7 @@ Public Class MedicineModelView
     Public Property ListMedicine As ICollection(Of Medicine)
         Get
             If _ListMedicine Is Nothing Then
-                '_ListMedicine = (From S As Medicine In DB.Medicine Select S).ToList
+                _ListMedicine = (From S As Medicine In DB.Medicines Select S).ToList
             End If
             Return _ListMedicine
         End Get

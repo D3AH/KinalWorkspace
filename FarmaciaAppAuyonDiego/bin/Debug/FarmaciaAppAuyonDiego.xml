@@ -64,6 +64,16 @@ LaboratoryView
 InitializeComponent
 </summary>
 </member>
+<member name="T:FarmaciaAppAuyonDiego.MedicineView">
+<summary>
+MedicineView
+</summary>
+</member>
+<member name="M:FarmaciaAppAuyonDiego.MedicineView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:FarmaciaAppAuyonDiego.SalesView">
 <summary>
 SalesView
