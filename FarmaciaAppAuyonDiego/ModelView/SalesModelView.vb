@@ -179,6 +179,17 @@ Public Class SalesModelView
             NotificarCambio("BtnUpdate")
         End Set
     End Property
+
+    Public ReadOnly Property dataRegistrosIsSomething As Boolean
+        Get
+            If Not IsNothing(Medicine) And Telephone IsNot Nothing And Amount = Nothing And Price = Nothing And SalesDate = Nothing Then
+                If Telephone IsNot "" And Amount = 0 And Price = 0 Then
+                    Return True
+                End If
+            End If
+            Return False
+        End Get
+    End Property
 #End Region
 #Region "IDataErrorInfo"
     Public ReadOnly Property [Error] As String Implements IDataErrorInfo.Error
@@ -206,17 +217,21 @@ Public Class SalesModelView
             Case "Save"
                 Dim Registro As New Sales
                 Registro.Amount = Amount
-                Registro.MedicineID = Medicine.MedicineID
                 Registro.Price = Price
                 Registro.Telephone = Telephone
                 Registro.SalesDate = SalesDate
-                DB.Sales.Add(Registro)
-                DB.SaveChanges()
-                BtnNew = True
-                BtnSave = False
-                BtnDelete = True
-                BtnUpdate = True
-                MsgBox("Registro agregado exitosamente")
+                If dataRegistrosIsSomething Then
+                    Registro.MedicineID = Medicine.MedicineID
+                    DB.Sales.Add(Registro)
+                    DB.SaveChanges()
+                    BtnNew = True
+                    BtnSave = False
+                    BtnDelete = True
+                    BtnUpdate = True
+                    MsgBox("Registro agregado exitosamente")
+                Else
+                    MsgBox("Debe llenar los campos")
+                End If
                 Me.ListSales = (From N In DB.Sales Select N).ToList
             Case "Update"
                 If Element IsNot Nothing Then

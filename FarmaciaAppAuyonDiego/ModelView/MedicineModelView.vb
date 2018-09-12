@@ -166,6 +166,17 @@ Public Class MedicineModelView
             NotificarCambio("BtnUpdate")
         End Set
     End Property
+
+    Public ReadOnly Property dataRegistroIsSomething As Boolean
+        Get
+            If Not IsNothing(Laboratory) And MedicineName IsNot Nothing And Description IsNot Nothing Then
+                If MedicineName IsNot "" And Description IsNot "" Then
+                    Return True
+                End If
+            End If
+            Return False
+        End Get
+    End Property
 #End Region
 #Region "IDataErrorInfo"
     Public ReadOnly Property [Error] As String Implements IDataErrorInfo.Error
@@ -193,15 +204,19 @@ Public Class MedicineModelView
             Case "Save"
                 Dim Registro As New Medicine
                 Registro.Description = Description
-                Registro.LaboratoryID = Laboratory.LaboratoryID
                 Registro.MedicineName = MedicineName
-                DB.Medicines.Add(Registro)
-                DB.SaveChanges()
-                BtnNew = True
-                BtnSave = False
-                BtnDelete = True
-                BtnUpdate = True
-                MsgBox("Registro agregado exitosamente")
+                If dataRegistroIsSomething Then
+                    Registro.LaboratoryID = Laboratory.LaboratoryID
+                    DB.Medicines.Add(Registro)
+                    DB.SaveChanges()
+                    BtnNew = True
+                    BtnSave = False
+                    BtnDelete = True
+                    BtnUpdate = True
+                    MsgBox("Registro agregado exitosamente")
+                Else
+                    MsgBox("Debe llenar los campos")
+                End If
                 Me.ListMedicine = (From N In DB.Medicines Select N).ToList
             Case "Update"
                 If Element IsNot Nothing Then
