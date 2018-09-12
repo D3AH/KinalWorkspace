@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:FarmaciaAppAuyonDiego"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="86" Width="300">
+        Title="MainWindow" Height="111" Width="300">
     <Grid>
         <Button x:Name="button" Command="{ Binding Model}" CommandParameter="Sales" Content="Sales" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="17,10,0,0"/>
         <Button x:Name="button_Copy" Command="{ Binding Model}" CommandParameter="Medicine" Content="Medicine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="115,10,0,0"/>
         <Button x:Name="button_Copy1" Command="{ Binding Model}" CommandParameter="Laboratory" Content="Laboratory" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="207,10,0,0"/>
+        <Button x:Name="button_Copy2" Command="{ Binding Model}" CommandParameter="Help" Content="About" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="115,43,0,0"/>
     </Grid>
 </Controls:MetroWindow>

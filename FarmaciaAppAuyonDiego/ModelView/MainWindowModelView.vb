@@ -50,8 +50,11 @@ Public Class MainWindowModelView
             Case "Medicine"
                 Dim MedicineWindow As New MedicineView
                 MedicineWindow.Show()
+            Case "Help"
+                Dim HelpWindow As New HelpView
+                HelpWindow.Show()
             Case Else
-                MsgBox("Hoola")
+                MsgBox("Operación invalida")
         End Select
     End Sub
 

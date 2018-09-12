@@ -92,8 +92,8 @@
     <Compile Include="ModelView\MainWindowModelView.vb" />
     <Compile Include="ModelView\LaboratoryModelView.vb" />
     <Compile Include="ModelView\MedicineModelView.vb" />
-    <Compile Include="View\Help.xaml.vb">
-      <DependentUpon>Help.xaml</DependentUpon>
+    <Compile Include="View\HelpView.xaml.vb">
+      <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LaboratoryView.xaml.vb">
       <DependentUpon>LaboratoryView.xaml</DependentUpon>
@@ -116,7 +116,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Help.xaml">
+    <Page Include="View\HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

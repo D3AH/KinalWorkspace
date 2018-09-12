@@ -54,12 +54,12 @@ FarmaciaAppAuyonDiego
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="T:FarmaciaAppAuyonDiego.Help">
+<member name="T:FarmaciaAppAuyonDiego.HelpView">
 <summary>
-Help
+HelpView
 </summary>
 </member>
-<member name="M:FarmaciaAppAuyonDiego.Help.InitializeComponent">
+<member name="M:FarmaciaAppAuyonDiego.HelpView.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

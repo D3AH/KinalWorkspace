@@ -31,5 +31,5 @@ C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.Resources.resources
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.vbproj.GenerateResource.Cache
 C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\FarmaciaAppAuyonDiego.pdb
-C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\Help.g.vb
-C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\Help.baml
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\HelpView.g.vb
+C:\Users\informatica\Documents\2014277\KinalWorkspace\FarmaciaAppAuyonDiego\obj\Debug\View\HelpView.baml
