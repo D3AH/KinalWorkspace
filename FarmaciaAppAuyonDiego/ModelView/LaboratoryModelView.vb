@@ -213,6 +213,11 @@ Public Class LaboratoryModelView
                 Else
                     MsgBox("Debe seleccionar un elemento")
                 End If
+            Case "Cancel"
+                BtnNew = True
+                BtnSave = False
+                BtnDelete = True
+                BtnUpdate = True
             Case Else
 
         End Select

@@ -54,6 +54,16 @@ FarmaciaAppAuyonDiego
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:FarmaciaAppAuyonDiego.Help">
+<summary>
+Help
+</summary>
+</member>
+<member name="M:FarmaciaAppAuyonDiego.Help.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:FarmaciaAppAuyonDiego.LaboratoryView">
 <summary>
 LaboratoryView

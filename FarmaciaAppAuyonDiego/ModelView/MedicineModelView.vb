@@ -247,8 +247,13 @@ Public Class MedicineModelView
                         Me.ListMedicine = (From N In DB.Medicines Select N).ToList
                     End If
                 Else
-                        MsgBox("Debe seleccionar un elemento")
+                    MsgBox("Debe seleccionar un elemento")
                 End If
+            Case "Cancel"
+                BtnNew = True
+                BtnSave = False
+                BtnDelete = True
+                BtnUpdate = True
             Case Else
 
         End Select

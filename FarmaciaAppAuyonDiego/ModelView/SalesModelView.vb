@@ -264,8 +264,13 @@ Public Class SalesModelView
                         Me.ListSales = (From N In DB.Sales Select N).ToList
                     End If
                 Else
-                        MsgBox("Debe seleccionar un elemento")
-                    End If
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Cancel"
+                BtnNew = True
+                BtnSave = False
+                BtnDelete = True
+                BtnUpdate = True
             Case Else
 
         End Select
