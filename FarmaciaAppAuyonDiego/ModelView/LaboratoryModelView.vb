@@ -70,6 +70,11 @@ Public Class LaboratoryModelView
         Set(value As Laboratory)
             _Element = value
             NotificarCambio("Element")
+            If Element IsNot Nothing Then
+                Address = Element.Address
+                LaboratoryName = Element.LaboratoryName
+                Telephone = Element.Telephone
+            End If
         End Set
     End Property
 
@@ -160,8 +165,31 @@ Public Class LaboratoryModelView
                 BtnSave = False
                 BtnDelete = True
                 BtnUpdate = True
+                MsgBox("Registro agregado exitosamente")
+                Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
             Case "Update"
-                MsgBox("Hola2")
+                If Element IsNot Nothing Then
+                    Element.Address = Address
+                    Element.LaboratoryName = LaboratoryName
+                    Element.Telephone = Telephone
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Try
+                        DB.Laboratories.Remove(Element)
+                        DB.SaveChanges()
+                        MsgBox("Registro eliminado", MsgBoxStyle.Information)
+                    Catch ex As Exception
+                        MsgBox("No puedes eliminar este registro!")
+                    End Try
+                    Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
+                End If
             Case Else
 
         End Select
