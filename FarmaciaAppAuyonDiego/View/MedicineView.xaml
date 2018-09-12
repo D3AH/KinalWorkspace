@@ -38,7 +38,14 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="462" Height="215" Grid.ColumnSpan="5" Grid.Row="2" IsSynchronizedWithCurrentItem="False" ItemsSource="{ Binding ListMedicine }" SelectedItem="{ Binding Element }" IsReadOnly="True"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="462" Height="215" Grid.ColumnSpan="5" Grid.Row="2" IsSynchronizedWithCurrentItem="False" ItemsSource="{ Binding ListMedicine }" SelectedItem="{ Binding Element }" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MedicineID}" ClipboardContentBinding="{Binding MedicineID}" Header="MedicineID"/>
+                <DataGridTextColumn Binding="{Binding MedicineName}" ClipboardContentBinding="{Binding MedicineName}" Header="MedicineName"/>
+                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{Binding Description}" Header="Description"/>
+                <DataGridTextColumn Binding="{Binding LaboratoryID}" ClipboardContentBinding="{Binding LaboratoryID}" Header="LaboratoryID"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="button" Command="{ Binding Model }" CommandParameter="New" IsEnabled="{ Binding BtnNew}" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="button_Copy" Command="{ Binding Model }" CommandParameter="Save" IsEnabled="{ Binding BtnSave}" Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
         <Button x:Name="button_Copy1" Command="{ Binding Model }" CommandParameter="Update" IsEnabled="{ Binding BtnUpdate}" Content="Update" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="2"/>
