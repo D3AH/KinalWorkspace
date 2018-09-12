@@ -170,7 +170,15 @@ Public Class MedicineModelView
                 Registro.MedicineName = MedicineName
                 DB.Medicines.Add(Registro)
             Case "Update"
-                MsgBox("Hola2")
+                If Element IsNot Nothing Then
+                    Registro.Description = Description
+                    Registro.LaboratoryID = LaboratoryID
+                    Registro.MedicineName = MedicineName
+                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                    DB.SaveChanges()
+                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListCourses = (From N In DB.Courses Select N).ToList
+                End If
             Case Else
 
         End Select
