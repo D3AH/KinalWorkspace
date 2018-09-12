@@ -26,8 +26,21 @@
         <TextBox x:Name="textBox_Copy" Text="{Binding Amount}" controls:TextBoxHelper.Watermark="Amount" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="1"/>
         <TextBox x:Name="textBox_Copy1" Text="{Binding Telephone}" controls:TextBoxHelper.Watermark="Telephone" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="2"/>
         <DatePicker  Grid.Column="3" Margin="5,5,18,5" Grid.ColumnSpan="2" DisplayDate="{Binding SalesDate}"/>
-        <ComboBox x:Name="comboBox" Grid.Row="1" Margin="5" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Medicine ID" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="462" Height="215" Grid.ColumnSpan="5" Grid.Row="2" IsSynchronizedWithCurrentItem="False" ItemsSource="{ Binding ListSales }"/>
+        <ComboBox x:Name="comboBox" Grid.Row="1" Margin="5" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Medicine ID" Grid.ColumnSpan="2" ItemsSource="{ Binding ListMedicine}" SelectedItem="{ Binding Medicine }">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} - {1}">
+                                <Binding Path="MedicineID"/>
+                                <Binding Path="MedicineName"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="462" Height="215" Grid.ColumnSpan="5" Grid.Row="2" IsSynchronizedWithCurrentItem="False" ItemsSource="{ Binding ListSales }" SelectedItem="{ Binding Element }" IsReadOnly="True"/>
         <Button x:Name="button" Command="{ Binding Model }" CommandParameter="New" IsEnabled="{ Binding BtnNew}" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="button_Copy" Command="{ Binding Model }" CommandParameter="Save" IsEnabled="{ Binding BtnSave}" Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
         <Button x:Name="button_Copy1" Command="{ Binding Model }" CommandParameter="Update" IsEnabled="{ Binding BtnUpdate}" Content="Update" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="2"/>
