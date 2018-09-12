@@ -96,6 +96,11 @@ Public Class MedicineModelView
         Set(value As Medicine)
             _Element = value
             NotificarCambio("Element")
+            If Element IsNot Nothing Then
+                Description = Element.Description
+                Laboratory = Element.Laboratory
+                MedicineName = Element.MedicineName
+            End If
         End Set
     End Property
 
@@ -200,13 +205,25 @@ Public Class MedicineModelView
                 Me.ListMedicine = (From N In DB.Medicines Select N).ToList
             Case "Update"
                 If Element IsNot Nothing Then
-                    Dim Registro As New Medicine
-                    Registro.Description = Description
-                    Registro.LaboratoryID = Laboratory.LaboratoryID
-                    Registro.MedicineName = MedicineName
+                    Element.Description = Description
+                    Element.LaboratoryID = Laboratory.LaboratoryID
+                    Element.MedicineName = MedicineName
                     DB.Entry(Element).State = Data.Entity.EntityState.Modified
                     DB.SaveChanges()
                     MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Me.ListMedicine = (From N In DB.Medicines Select N).ToList
+                Else
+                    MsgBox("Debe seleccionar un elemento")
+                End If
+            Case "Delete"
+                If Element IsNot Nothing Then
+                    Try
+                        DB.Medicines.Remove(Element)
+                        DB.SaveChanges()
+                        MsgBox("Registro eliminado", MsgBoxStyle.Information)
+                    Catch ex As Exception
+                        MsgBox("No puedes eliminar este registro!")
+                    End Try
                     Me.ListMedicine = (From N In DB.Medicines Select N).ToList
                 End If
             Case Else
