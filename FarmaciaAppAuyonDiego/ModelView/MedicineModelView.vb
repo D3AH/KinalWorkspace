@@ -235,8 +235,8 @@ Public Class MedicineModelView
                     MsgBox("Debe seleccionar un elemento")
                 End If
             Case "Delete"
-                If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
-                    If Element IsNot Nothing Then
+                If Element IsNot Nothing Then
+                    If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
                         Try
                             DB.Medicines.Remove(Element)
                             DB.SaveChanges()
@@ -245,9 +245,9 @@ Public Class MedicineModelView
                             MsgBox("No puedes eliminar este registro!")
                         End Try
                         Me.ListMedicine = (From N In DB.Medicines Select N).ToList
-                    Else
-                        MsgBox("Debe seleccionar un elemento")
                     End If
+                Else
+                        MsgBox("Debe seleccionar un elemento")
                 End If
             Case Else
 

@@ -182,8 +182,8 @@ Public Class SalesModelView
 
     Public ReadOnly Property dataRegistrosIsSomething As Boolean
         Get
-            If Not IsNothing(Medicine) And Telephone IsNot Nothing And Amount = Nothing And Price = Nothing And SalesDate = Nothing Then
-                If Telephone IsNot "" And Amount = 0 And Price = 0 Then
+            If Not IsNothing(Medicine) And Telephone IsNot Nothing And Amount <> Nothing And Price <> Nothing And SalesDate <> Nothing Then
+                If Telephone IsNot "" And Amount <> 0 And Price <> 0 Then
                     Return True
                 End If
             End If
@@ -252,8 +252,8 @@ Public Class SalesModelView
                     MsgBox("Debe seleccionar un elemento")
                 End If
             Case "Delete"
-                If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
-                    If Element IsNot Nothing Then
+                If Element IsNot Nothing Then
+                    If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
                         Try
                             DB.Sales.Remove(Element)
                             DB.SaveChanges()
@@ -262,10 +262,10 @@ Public Class SalesModelView
                             MsgBox("No puedes eliminar este registro!")
                         End Try
                         Me.ListSales = (From N In DB.Sales Select N).ToList
-                    Else
+                    End If
+                Else
                         MsgBox("Debe seleccionar un elemento")
                     End If
-                End If
             Case Else
 
         End Select
