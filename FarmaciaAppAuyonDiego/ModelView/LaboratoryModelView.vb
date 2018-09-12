@@ -172,9 +172,13 @@ Public Class LaboratoryModelView
                     Element.Address = Address
                     Element.LaboratoryName = LaboratoryName
                     Element.Telephone = Telephone
-                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
-                    DB.SaveChanges()
-                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Try
+                        DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                        DB.SaveChanges()
+                        MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Catch ex As Exception
+                        MsgBox("Ocurrio un error al intentar actualizar este registro!")
+                    End Try
                     Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
                 Else
                     MsgBox("Debe seleccionar un elemento")

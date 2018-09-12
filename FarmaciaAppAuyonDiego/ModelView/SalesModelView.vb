@@ -225,9 +225,13 @@ Public Class SalesModelView
                     Element.Price = Price
                     Element.Telephone = Telephone
                     Element.SalesDate = SalesDate
-                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
-                    DB.SaveChanges()
-                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Try
+                        DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                        DB.SaveChanges()
+                        MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Catch ex As Exception
+                        MsgBox("Ocurrio un error al intentar actualizar este registro!")
+                    End Try
                     Me.ListSales = (From N In DB.Sales Select N).ToList
                 Else
                     MsgBox("Debe seleccionar un elemento")

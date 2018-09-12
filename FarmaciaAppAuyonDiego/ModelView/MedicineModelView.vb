@@ -208,9 +208,13 @@ Public Class MedicineModelView
                     Element.Description = Description
                     Element.LaboratoryID = Laboratory.LaboratoryID
                     Element.MedicineName = MedicineName
-                    DB.Entry(Element).State = Data.Entity.EntityState.Modified
-                    DB.SaveChanges()
-                    MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Try
+                        DB.Entry(Element).State = Data.Entity.EntityState.Modified
+                        DB.SaveChanges()
+                        MsgBox("Registro Actualizado", MsgBoxStyle.Information)
+                    Catch ex As Exception
+                        MsgBox("Ocurrio un error al intentar actualizar este registro!")
+                    End Try
                     Me.ListMedicine = (From N In DB.Medicines Select N).ToList
                 Else
                     MsgBox("Debe seleccionar un elemento")
