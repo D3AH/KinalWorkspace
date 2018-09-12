@@ -181,14 +181,16 @@ Public Class LaboratoryModelView
                 End If
             Case "Delete"
                 If Element IsNot Nothing Then
-                    Try
-                        DB.Laboratories.Remove(Element)
-                        DB.SaveChanges()
-                        MsgBox("Registro eliminado", MsgBoxStyle.Information)
-                    Catch ex As Exception
-                        MsgBox("No puedes eliminar este registro!")
-                    End Try
-                    Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
+                    If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
+                        Try
+                            DB.Laboratories.Remove(Element)
+                            DB.SaveChanges()
+                            MsgBox("Registro eliminado", MsgBoxStyle.Information)
+                        Catch ex As Exception
+                            MsgBox("No puedes eliminar este registro!")
+                        End Try
+                        Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
+                    End If
                 Else
                     MsgBox("Debe seleccionar un elemento")
                 End If

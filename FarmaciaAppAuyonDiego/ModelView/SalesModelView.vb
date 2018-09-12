@@ -233,17 +233,19 @@ Public Class SalesModelView
                     MsgBox("Debe seleccionar un elemento")
                 End If
             Case "Delete"
-                If Element IsNot Nothing Then
-                    Try
-                        DB.Sales.Remove(Element)
-                        DB.SaveChanges()
-                        MsgBox("Registro eliminado", MsgBoxStyle.Information)
-                    Catch ex As Exception
-                        MsgBox("No puedes eliminar este registro!")
-                    End Try
-                    Me.ListSales = (From N In DB.Sales Select N).ToList
-                Else
-                    MsgBox("Debe seleccionar un elemento")
+                If MsgBox("Se eliminaran todos los dependientes de este registro, confirme acción.", MsgBoxStyle.OkCancel, "Eliminando Registro") = MsgBoxResult.Ok Then
+                    If Element IsNot Nothing Then
+                        Try
+                            DB.Sales.Remove(Element)
+                            DB.SaveChanges()
+                            MsgBox("Registro eliminado", MsgBoxStyle.Information)
+                        Catch ex As Exception
+                            MsgBox("No puedes eliminar este registro!")
+                        End Try
+                        Me.ListSales = (From N In DB.Sales Select N).ToList
+                    Else
+                        MsgBox("Debe seleccionar un elemento")
+                    End If
                 End If
             Case Else
 
