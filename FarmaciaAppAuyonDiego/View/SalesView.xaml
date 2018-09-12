@@ -25,7 +25,7 @@
         <TextBox x:Name="textBox" Text="{Binding Price}" controls:TextBoxHelper.Watermark="Price" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="0"/>
         <TextBox x:Name="textBox_Copy" Text="{Binding Amount}" controls:TextBoxHelper.Watermark="Amount" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="1"/>
         <TextBox x:Name="textBox_Copy1" Text="{Binding Telephone}" controls:TextBoxHelper.Watermark="Telephone" Margin="5" TextWrapping="Wrap" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.IsWaitingForData="True" Grid.Column="2"/>
-        <DatePicker  Grid.Column="3" Margin="5,5,18,5" Grid.ColumnSpan="2" DisplayDate="{Binding SalesDate}"/>
+        <DatePicker  Grid.Column="3" Margin="5,5,18,5" Grid.ColumnSpan="2" DisplayDate="{Binding SalesDate}" SelectedDate="{Binding SalesDate}"/>
         <ComboBox x:Name="comboBox" Grid.Row="1" Margin="5" controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Medicine ID" Grid.ColumnSpan="2" ItemsSource="{ Binding ListMedicine}" SelectedItem="{ Binding Medicine }">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
