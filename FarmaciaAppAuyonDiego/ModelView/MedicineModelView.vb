@@ -225,6 +225,8 @@ Public Class MedicineModelView
                         MsgBox("No puedes eliminar este registro!")
                     End Try
                     Me.ListMedicine = (From N In DB.Medicines Select N).ToList
+                Else
+                    MsgBox("Debe seleccionar un elemento")
                 End If
             Case Else
 

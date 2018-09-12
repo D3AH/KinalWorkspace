@@ -242,6 +242,8 @@ Public Class SalesModelView
                         MsgBox("No puedes eliminar este registro!")
                     End Try
                     Me.ListSales = (From N In DB.Sales Select N).ToList
+                Else
+                    MsgBox("Debe seleccionar un elemento")
                 End If
             Case Else
 

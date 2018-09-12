@@ -189,6 +189,8 @@ Public Class LaboratoryModelView
                         MsgBox("No puedes eliminar este registro!")
                     End Try
                     Me.ListLaboratory = (From N In DB.Laboratories Select N).ToList
+                Else
+                    MsgBox("Debe seleccionar un elemento")
                 End If
             Case Else
 
