@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FarmaciaAppAuyonDiego"
         mc:Ignorable="d"
-        Title="Medicine" Height="369.571" Width="500" HorizontalAlignment="Right">
-    <Grid Margin="5,5,5,0" Height="357" VerticalAlignment="Top">
+        Title="Medicine" Height="384.571" Width="500" HorizontalAlignment="Right">
+    <Grid Margin="5,5,5,0" Height="349" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

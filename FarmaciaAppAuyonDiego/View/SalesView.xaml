@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FarmaciaAppAuyonDiego"
         mc:Ignorable="d"
-        Title="Sales" Height="398" Width="500" HorizontalAlignment="Right">
+        Title="Sales" Height="408.041" Width="500" HorizontalAlignment="Right">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
