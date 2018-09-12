@@ -13,6 +13,7 @@ Public Class MedicineModelView
     Private _ListLaboratory As ICollection(Of Laboratory)
     Private _Element As Medicine
     Private _Model As MedicineModelView
+    Private _Laboratory As Laboratory
 
     Private _BtnNew = True
     Private _BtnSave = False
@@ -28,6 +29,7 @@ Public Class MedicineModelView
         End Get
         Set(value As String)
             _MedicineName = value
+            NotificarCambio("MedicineName")
         End Set
     End Property
 
@@ -37,6 +39,7 @@ Public Class MedicineModelView
         End Get
         Set(value As String)
             _Description = value
+            NotificarCambio("Description")
         End Set
     End Property
 
@@ -46,6 +49,7 @@ Public Class MedicineModelView
         End Get
         Set(value As String)
             _Telephone = value
+            NotificarCambio("Telephone")
         End Set
     End Property
 
@@ -55,6 +59,7 @@ Public Class MedicineModelView
         End Get
         Set(value As Integer)
             _LaboratoryID = value
+            NotificarCambio("LaboratoryID")
         End Set
     End Property
 
@@ -67,6 +72,7 @@ Public Class MedicineModelView
         End Get
         Set(value As ICollection(Of Medicine))
             _ListMedicine = value
+            NotificarCambio("ListMedicine")
         End Set
     End Property
 
@@ -79,6 +85,7 @@ Public Class MedicineModelView
         End Get
         Set(value As ICollection(Of Laboratory))
             _ListLaboratory = value
+            NotificarCambio("ListLaboratory")
         End Set
     End Property
 
@@ -88,6 +95,7 @@ Public Class MedicineModelView
         End Get
         Set(value As Medicine)
             _Element = value
+            NotificarCambio("Element")
         End Set
     End Property
 
@@ -104,12 +112,23 @@ Public Class MedicineModelView
         End Set
     End Property
 
+    Public Property Laboratory As Laboratory
+        Get
+            Return _Laboratory
+        End Get
+        Set(value As Laboratory)
+            _Laboratory = value
+            NotificarCambio("Laboratory")
+        End Set
+    End Property
+
     Public Property BtnNew As Object
         Get
             Return _BtnNew
         End Get
         Set(value As Object)
             _BtnNew = value
+            NotificarCambio("BtnNew")
         End Set
     End Property
 
@@ -119,6 +138,7 @@ Public Class MedicineModelView
         End Get
         Set(value As Object)
             _BtnSave = value
+            NotificarCambio("BtnSave")
         End Set
     End Property
 
@@ -128,6 +148,7 @@ Public Class MedicineModelView
         End Get
         Set(value As Object)
             _BtnDelete = value
+            NotificarCambio("BtnDelete")
         End Set
     End Property
 
@@ -137,6 +158,7 @@ Public Class MedicineModelView
         End Get
         Set(value As Object)
             _BtnUpdate = value
+            NotificarCambio("BtnUpdate")
         End Set
     End Property
 #End Region
@@ -166,18 +188,26 @@ Public Class MedicineModelView
             Case "Save"
                 Dim Registro As New Medicine
                 Registro.Description = Description
-                Registro.LaboratoryID = LaboratoryID
+                Registro.LaboratoryID = Laboratory.LaboratoryID
                 Registro.MedicineName = MedicineName
                 DB.Medicines.Add(Registro)
+                DB.SaveChanges()
+                BtnNew = True
+                BtnSave = False
+                BtnDelete = True
+                BtnUpdate = True
+                MsgBox("Registro agregado exitosamente")
+                Me.ListMedicine = (From N In DB.Medicines Select N).ToList
             Case "Update"
                 If Element IsNot Nothing Then
+                    Dim Registro As New Medicine
                     Registro.Description = Description
-                    Registro.LaboratoryID = LaboratoryID
+                    Registro.LaboratoryID = Laboratory.LaboratoryID
                     Registro.MedicineName = MedicineName
                     DB.Entry(Element).State = Data.Entity.EntityState.Modified
                     DB.SaveChanges()
                     MsgBox("Registro Actualizado", MsgBoxStyle.Information)
-                    Me.ListCourses = (From N In DB.Courses Select N).ToList
+                    Me.ListMedicine = (From N In DB.Medicines Select N).ToList
                 End If
             Case Else
 
